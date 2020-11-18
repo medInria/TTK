@@ -119,7 +119,7 @@ namespace itk
     
     virtual typename Superclass::TransformCategoryType GetTransformCategory() const
     {
-      return TransformCategoryType::Linear;
+      return TransformBaseTemplateEnums::TransformCategory::Linear;
     }
 
     virtual void SetIdentity( void );
