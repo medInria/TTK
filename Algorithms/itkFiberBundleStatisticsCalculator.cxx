@@ -48,9 +48,9 @@ namespace itk
 
         lines->InitTraversal();
   
-        vtkIdType  npts  = 0;
-        vtkIdType* ptids = nullptr;
-        vtkIdType test = lines->GetNextCell (npts, ptids);
+        vtkIdType        npts  = 0;
+        vtkIdType const* ptids = nullptr;
+        vtkIdType        test  = lines->GetNextCell (npts, ptids);
 
         while ( test )
         {

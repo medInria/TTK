@@ -67,8 +67,8 @@ namespace itk
       typename DTITubeSpatialObjectType::Pointer dtiTube = DTITubeSpatialObjectType::New();
       dtiTube->SetId (1);
       
-      vtkIdType npts = 0;
-      vtkIdType *pts = 0;
+      vtkIdType        npts = 0;
+      vtkIdType const *pts  = nullptr;
       vtkLines->GetNextCell(npts, pts);
       
       std::vector<DTIPointType> pointsToAdd;
