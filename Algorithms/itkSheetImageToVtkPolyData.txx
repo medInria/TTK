@@ -90,6 +90,7 @@ namespace itk
     unsigned long numPixels = this->GetInput()->GetLargestPossibleRegion().GetNumberOfPixels();
     unsigned long step      = numPixels/10;
     unsigned long progress  = 0;
+    TensorType t;
 
     this->UpdateProgress (0.0);
 
@@ -108,7 +109,7 @@ namespace itk
         diff /= diff.GetNorm();
 	
         double fa = 0.0;
-        TensorType t = listPoints[0].Tensor;
+        t = listPoints[0].Tensor;
         if (!t.IsZero())
         {
           fa = t.GetFA();
@@ -136,9 +137,8 @@ namespace itk
         {
           for( int i=1; i<npts-1; i++)
           {            
-            //alpha = 1.0;
             fa = 0.0;
-            TensorType t = listPoints[i].Tensor;
+            t = listPoints[i].Tensor;
             if (!t.IsZero())
             {
               fa = t.GetFA();
@@ -167,8 +167,7 @@ namespace itk
           // special case of the last point
           
           fa = 0.0;
-          //double alpha = 1.0;
-          TensorType t = listPoints[npts-1].Tensor;
+          t = listPoints[npts-1].Tensor;
           if (!t.IsZero())
           {
             fa = t.GetFA();

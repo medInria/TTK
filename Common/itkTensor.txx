@@ -1102,7 +1102,7 @@ namespace itk
   ::ApplyMatrix (const MatrixType& R) const
   {
     Self res;
-    res.SetVnlMatrix ( this->ApplyMatrix (R.GetVnlMatrix() ) );
+    res.SetVnlMatrix ( this->ApplyMatrix (R.GetVnlMatrix().as_ref()).as_ref());
     return res;
   }
 

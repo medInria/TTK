@@ -85,7 +85,6 @@ namespace itk
     typedef float                                 ScalarType;
     typedef itk::TensorImageIO<ScalarType, 3 ,3>  IOType;
     typedef IOType::TensorImageType               TensorImageType;
-    typedef TensorImageType::PixelType            TensorType;
     typedef itk::Fiber<ScalarType, 3>             FiberType;
     typedef itk::Image<FiberType, 3>              FiberImageType;
     typedef itk::Image<unsigned char, 3>          ImageType;

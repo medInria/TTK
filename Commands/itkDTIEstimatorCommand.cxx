@@ -33,22 +33,12 @@ namespace itk
         typedef itk::TensorImageIO<float, 3, 3>            IOType;
         typedef typename IOType::TensorImageType           TensorImageType;
         typedef itk::ImageFileReader<ImageType>            ReaderType;
-        typedef itk::ImageFileReader<Image4DType>          Reader4DType;
 
         typedef itk::DTIEstimatorTensorImageFilter<ImageType, TensorImageType>
                 EstimatorType;
         typedef typename EstimatorType::GradientType GradientType;
-        typedef typename EstimatorType::GradientListType GradientListType;
         typedef itk::RemoveNonPositiveTensorsTensorImageFilter<TensorImageType,TensorImageType>
                 RemoveNPTFilterType;
-
-        typedef typename Image4DType::RegionType  Region4dType;
-        typedef typename Image4DType::SpacingType Spacing4Dtype;
-
-        typedef itk::ImageRegionIterator<Image4DType> Iterator4DType;
-        typedef typename Iterator4DType::IndexType Index4DType;
-        typedef typename ImageType::DirectionType Direction3Dtype;
-        typedef typename Image4DType::DirectionType Direction4Dtype;
 
         const char *fileIn = arg.input;
         const char *fileOut = arg.output;

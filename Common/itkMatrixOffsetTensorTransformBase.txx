@@ -294,7 +294,7 @@ namespace itk
   {
     // rotate w.r.t the rigid part of the transform
     OutputTensorType TENS;
-    TENS.SetVnlMatrix ( tensor.ApplyMatrix ( m_Rigid.GetTranspose() ) );
+    TENS.SetVnlMatrix ( tensor.ApplyMatrix ( m_Rigid.GetTranspose().as_ref() ).as_ref() );
     return TENS;    
   }
   
@@ -309,7 +309,7 @@ namespace itk
   {
     // rotate w.r.t the rigid part of the transform
     OutputTensorType TENS;
-    TENS.SetVnlMatrix ( tensor.ApplyMatrix ( m_Rigid.GetVnlMatrix() ) );
+    TENS.SetVnlMatrix ( tensor.ApplyMatrix ( m_Rigid.GetVnlMatrix().as_ref() ).as_ref() );
     return TENS;    
   }
 
@@ -323,7 +323,7 @@ namespace itk
   {
     // rotate w.r.t the rigid part of the transform
     OutputTensorType TENS;
-    TENS.SetVnlMatrix ( tensor.ApplyMatrix ( m_Rigid.GetTranspose() ) );
+    TENS.SetVnlMatrix ( tensor.ApplyMatrix ( m_Rigid.GetTranspose().as_ref() ).as_ref() );
     return TENS;
   }
 
@@ -663,15 +663,11 @@ namespace itk
 
     vnl_matrix_fixed <TScalarType, NInputDimensions, NInputDimensions >
       MMt = m_Matrix.GetVnlMatrix() * m_Matrix.GetTranspose();
-
-    //std::cout << MMt << std::endl;
     
     InputTensorType T;
-    T.SetVnlMatrix (MMt);
+    T.SetVnlMatrix (MMt.as_ref());
 
     T = T.InvSqrt();
-
-    //std::cout << T << std::endl;
 
     vnl_matrix<TScalarType> res = T.GetVnlMatrix()*m_Matrix.GetVnlMatrix();
 

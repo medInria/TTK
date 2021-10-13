@@ -123,11 +123,15 @@ namespace itk
       D[2][2] = pix.GetEigenvalue (2) * (ratio);
       
       for (unsigned int i=0; i<3; i++)
-	for (unsigned int j=0; j<3; j++)
-	  U[i][j] = pix.GetEigenvector (j)[i];
+      {
+	      for (unsigned int j=0; j<3; j++)
+        {
+	        U[i][j] = pix.GetEigenvector (j)[i];
+        }
+      }
       
-        TensorImageType::PixelType::MatrixType updatedTensor = U * D * U.GetTranspose();
-      pix.SetVnlMatrix (updatedTensor.GetVnlMatrix());
+      TensorImageType::PixelType::MatrixType updatedTensor = U * D * U.GetTranspose();
+      pix.SetVnlMatrix (updatedTensor.GetVnlMatrix().as_ref());
       
       itOut.Set ( pix );
       ++itIn;
