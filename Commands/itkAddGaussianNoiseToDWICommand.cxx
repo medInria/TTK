@@ -90,7 +90,6 @@ namespace itk
     typedef itk::RemoveNonPositiveTensorsTensorImageFilter<TensorImageType,TensorImageType> RemoveNPTFilterType;
 
     typedef itk::TensorsToDWITensorImageFilter<TensorImageType, ImageType>   TensorsToDWIFilter;
-    typedef TensorsToDWIFilter::GradientType                                 GradientType;
     typedef TensorsToDWIFilter::GradientListType                             GradientListType;
 
     std::cout<<"reading "<<fileIn<<"..."<<std::flush;

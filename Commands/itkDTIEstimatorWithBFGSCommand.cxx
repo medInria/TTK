@@ -85,11 +85,8 @@ namespace itk
 
     typedef double                                          ScalarType;  
     typedef itk::Image<ScalarType,3>                        ImageType;
-    typedef ImageType::RegionType                           RegionType;
-    typedef ImageType::SizeType                             SizeType;
     typedef itk::TensorImageIO<ScalarType, 3, 3>            IOType;
-    typedef IOType::TensorImageType                         TensorImageType;    
-    typedef TensorImageType::PixelType                      TensorType;
+    typedef IOType::TensorImageType                         TensorImageType;
     typedef itk::ImageFileReader<ImageType>                 ReaderType;
     typedef itk::DTIEstimatorWithBFGSTensorImageFilter<ImageType, TensorImageType>
       EstimatorType;

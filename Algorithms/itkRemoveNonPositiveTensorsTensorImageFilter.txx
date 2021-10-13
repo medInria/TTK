@@ -104,8 +104,6 @@ namespace itk
     typename OutputImageType::Pointer       output = this->GetOutput();
     typename InputImageType::ConstPointer   input  = this->GetInput();
 
-    unsigned long numPixels = outputRegionForThread.GetNumberOfPixels();
-    unsigned long step = numPixels/100;
     unsigned long progress = 0;
 
     // Find the data-set boundary "faces"
