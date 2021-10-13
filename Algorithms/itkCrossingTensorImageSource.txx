@@ -38,9 +38,10 @@ namespace itk
     typename TensorImageType::SizeType size = {{0}};
 
     typename TensorImageType::SizeType::SizeValueType localSize[NDimensions];
-    for (int i=0; i<NDimensions; ++i)
+    for (unsigned int i=0; i<NDimensions; ++i)
+    {
         localSize[i]  = m_Size[i];
-
+    }
     size.SetSize( localSize );
     
     RegionType region;
