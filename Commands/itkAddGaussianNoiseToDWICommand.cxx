@@ -86,7 +86,6 @@ namespace itk
     typedef itk::TensorToScalarTensorImageFilter<TensorImageType, ImageType> TensorToScalarFilterType;
     typedef itk::TensorToL2NormFunction<TensorType, ScalarType>              TensorFunctionType;
     typedef itk::DTIEstimatorTensorImageFilter<ImageType, TensorImageType>   EstimatorType;
-    typedef EstimatorType::GradientType                                      GradientType;
     typedef itk::RemoveNonPositiveTensorsTensorImageFilter<TensorImageType,TensorImageType> RemoveNPTFilterType;
 
     typedef itk::TensorsToDWITensorImageFilter<TensorImageType, ImageType>   TensorsToDWIFilter;

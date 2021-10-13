@@ -233,34 +233,8 @@ WarpJacobianFilter<TInputImage, TOutputImage>
          // add one on the diagonal to consider the warping and not only the deformation field
          J[i][i] += 1.0;
       }
-
-      typename TInputImage::DirectionType direction = this->GetInput()->GetDirection();
-
-      /*
-	OutputPixelType orientedJ;
-	orientedJ.Fill (0.0);
-	orientedJ = direction * J * direction;
-	
-	for (i = 0; i < VectorDimension; ++i)
-	{
-	VectorType vec;
-	for (j=0; j<ImageDimension; j++)
-	{
-	vec[j] = J[j][i];
-	}
-	//const InputImage *input = this->GetInput();
-	this->GetInput()->TransformLocalVectorToPhysicalVector (vec, vec);
-	for (j=0; j<ImageDimension; j++)
-	{
-	orientedJ[j][i] = vec[j];
-	}
-	}
-	return orientedJ;
-      */
       
       return J;
-  
-
 }
 
 

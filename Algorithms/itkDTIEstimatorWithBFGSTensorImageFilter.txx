@@ -369,13 +369,10 @@ namespace itk
     
     ScalarType t = m_Tinit;
     ScalarType EPS = 1e-12;
-
-    OutputPixelType junk;
     
     while( t>EPS )
     {      
       t *= 0.5;
-      Et = Simulator (data, L+DIR*t, junk);
     }        
     
     ScalarType tg = 0.0;
@@ -680,24 +677,16 @@ namespace itk
 
           // nouveau gradient
           OutputPixelType GRADtt;
-          ScalarType Ett = this->Simulator (data, Ltt, GRADtt);
+          Simulator (data, Ltt, GRADtt);
 
           // nouvelle matrice BFGS
           Wt = this->BFGS(Lt,Ltt,GRADt,GRADtt,Wt);
 
           GRADt = GRADtt;
 
-          //Energy = (Lt - Ltt).GetNorm();/*Et-Ett;*/ //GRADt.GetNorm();
           Energy = GRADt.GetNorm();
-		  
-/*
-		  if ( isnan (Energy) )          
-          {
-            break;            
-          }
-  */        
+ 
           Lt = Ltt;
-          Et = Ett;
    
           nite++;          
           

@@ -266,7 +266,7 @@ namespace itk
       // Therefore, the following routine uses a
       // precisionConstant that specifies the number of relevant bits,
       // and the value is truncated to this precision.
-      for (int i=0; i < ImageDimension; ++i)
+      for (unsigned int i=0; i < ImageDimension; ++i)
       {
         double roundedInputIndex = std::floor(inputIndex[i]);
         double inputIndexFrac    = inputIndex[i] - roundedInputIndex;
@@ -284,7 +284,7 @@ namespace itk
 	
         value = m_TensorTransform->TransformTensorReverse (value);
 
-	value.SetVnlMatrix(value.ApplyMatrix (this->GetOutput()->GetDirection().GetTranspose()));
+	value.SetVnlMatrix(value.ApplyMatrix (this->GetOutput()->GetDirection().GetTranspose().as_ref()).as_ref());
 	
         pixval = static_cast<PixelType>( value );
     
@@ -409,7 +409,7 @@ namespace itk
     // Therefore, the following routine uses a
     // precisionConstant that specifies the number of relevant bits,
     // and the value is truncated to this precision.
-    for (int i=0; i < ImageDimension; ++i)
+    for (unsigned int i=0; i < ImageDimension; ++i)
     {
       double roundedDelta = std::floor(delta[i]);
       double deltaFrac = delta[i] - roundedDelta;
@@ -443,7 +443,7 @@ namespace itk
       // Therefore, the following routine uses a
       // precisionConstant that specifies the number of relevant bits,
       // and the value is truncated to this precision.
-      for (int i=0; i < ImageDimension; ++i)
+      for (unsigned int i=0; i < ImageDimension; ++i)
       {
         double roundedInputIndex = std::floor(inputIndex[i]);
         double inputIndexFrac = inputIndex[i] - roundedInputIndex;
@@ -464,7 +464,7 @@ namespace itk
 	  
 	  value = m_TensorTransform->TransformTensor (value);
 	  
-	  value.SetVnlMatrix(value.ApplyMatrix (this->GetOutput()->GetDirection().GetTranspose()));
+	  value.SetVnlMatrix(value.ApplyMatrix (this->GetOutput()->GetDirection().GetTranspose().as_ref()).as_ref());
 	  
           pixval = static_cast<PixelType>( value );
           outIt.Set( pixval );      

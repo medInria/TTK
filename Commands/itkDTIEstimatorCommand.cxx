@@ -40,8 +40,6 @@ namespace itk
         typedef itk::RemoveNonPositiveTensorsTensorImageFilter<TensorImageType,TensorImageType>
                 RemoveNPTFilterType;
 
-        typedef itk::ImageRegionIterator<Image4DType> Iterator4DType;
-
         const char *fileIn = arg.input;
         const char *fileOut = arg.output;
         const char *fileGrad = arg.gradients;
