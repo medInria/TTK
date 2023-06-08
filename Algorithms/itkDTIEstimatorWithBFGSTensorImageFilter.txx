@@ -636,13 +636,6 @@ namespace itk
 
 
         OutputPixelType GRADt;
-        ScalarType Et = this->Simulator(data, Lt, GRADt);
-        
-
-	/*
-        if ( isnan ( Et ) )
-          Lt = OutputPixelType( static_cast<ScalarType>( 0.0 ) );
-	*/
         
         unsigned int nite = 0;
         ScalarType Energy = 9999999;
@@ -695,19 +688,9 @@ namespace itk
           Wt = this->BFGS(Lt,Ltt,GRADt,GRADtt,Wt);
 
           GRADt = GRADtt;
-
-          //Energy = (Lt - Ltt).GetNorm();/*Et-Ett;*/ //GRADt.GetNorm();
           Energy = GRADt.GetNorm();
 		  
-/*
-		  if ( isnan (Energy) )          
-          {
-            break;            
-          }
-  */        
           Lt = Ltt;
-          Et = Ett;
-   
           nite++;          
           
         }

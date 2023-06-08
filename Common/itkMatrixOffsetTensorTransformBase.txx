@@ -294,8 +294,9 @@ namespace itk
   {
     // rotate w.r.t the rigid part of the transform
     OutputTensorType TENS;
-    TENS.SetVnlMatrix ( tensor.ApplyMatrix ( m_Rigid.GetTranspose() ) );
-    return TENS;    
+    auto matrix = tensor.ApplyMatrix(static_cast<vnl_matrix<TScalarType>>(m_Rigid.GetTranspose()));
+    TENS.SetVnlMatrix(matrix.as_ref());
+    return TENS;
   }
   
   
@@ -309,8 +310,9 @@ namespace itk
   {
     // rotate w.r.t the rigid part of the transform
     OutputTensorType TENS;
-    TENS.SetVnlMatrix ( tensor.ApplyMatrix ( m_Rigid.GetVnlMatrix() ) );
-    return TENS;    
+    auto matrix = tensor.GetVnlMatrix() * m_Rigid.GetVnlMatrix();
+    TENS.SetVnlMatrix(matrix.as_ref());
+    return TENS;
   }
 
   // Transform a Tensor with Finiste Strain (FS) reorientation strategy
@@ -323,7 +325,8 @@ namespace itk
   {
     // rotate w.r.t the rigid part of the transform
     OutputTensorType TENS;
-    TENS.SetVnlMatrix ( tensor.ApplyMatrix ( m_Rigid.GetTranspose() ) );
+    auto matrix = tensor.ApplyMatrix(static_cast<vnl_matrix<TScalarType>>(m_Rigid.GetTranspose()));
+    TENS.SetVnlMatrix(matrix.as_ref());
     return TENS;
   }
 
@@ -337,8 +340,6 @@ namespace itk
   ::TransformTensorWithPPD(const InputTensorType &tensor) const 
   {
     // rotate preserving the principal direction affine transformation
-    //std::cout << m_Matrix << std::endl;
-    
     // The PPD only works with 3D tensors!
     if ((NInputDimensions > 3) || (NOutputDimensions > 3) || (NInputDimensions != NOutputDimensions))
       return tensor;
@@ -362,8 +363,6 @@ namespace itk
 
     OutputTensorType TENS;
     TENS = e1*Tensor<TScalarType,NOutputDimensions>(E1) + e2*Tensor<TScalarType,NOutputDimensions>(E2) + e3*Tensor<TScalarType,NOutputDimensions>(E3);
-    //std::cout << TENS << std::endl;
-    //getchar();
     return TENS;
   }
 
@@ -659,24 +658,15 @@ namespace itk
   MatrixOffsetTensorTransformBase<TScalarType, NInputDimensions, NOutputDimensions>
   ::ComputeRigidPartOfTransform( void ) 
   {
-    //std::cout << m_Matrix << std::endl;
-
     vnl_matrix_fixed <TScalarType, NInputDimensions, NInputDimensions >
-      MMt = m_Matrix.GetVnlMatrix() * m_Matrix.GetTranspose();
+      MMt = (m_Matrix.GetVnlMatrix() * m_Matrix.GetTranspose()).as_matrix();
 
-    //std::cout << MMt << std::endl;
-    
     InputTensorType T;
-    T.SetVnlMatrix (MMt);
+    T.SetVnlMatrix (MMt.as_matrix());
 
     T = T.InvSqrt();
 
-    //std::cout << T << std::endl;
-
     vnl_matrix<TScalarType> res = T.GetVnlMatrix()*m_Matrix.GetVnlMatrix();
-
-    //std::cout << res << std::endl;
-    //getchar();
     
     for( unsigned int i=0; i<NInputDimensions; i++)
     {

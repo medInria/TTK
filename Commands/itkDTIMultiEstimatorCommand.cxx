@@ -146,8 +146,6 @@ namespace itk
       iEstimator->SetBST(bst);
 
       std::cout<<"adding first pair DWIs[0].first and .second "<<std::endl;
-      GradientType gnull = DWIs[0].first;
-      //iEstimator->AddGradient (gnull);
       iEstimator->SetInput (0, DWIs[0].second);
       
       std::cout<<"the dwis list contains "<<dwis.size()<<" pairs"<<std::endl;

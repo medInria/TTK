@@ -1102,10 +1102,10 @@ namespace itk
   ::ApplyMatrix (const MatrixType& R) const
   {
     Self res;
-    res.SetVnlMatrix ( this->ApplyMatrix (R.GetVnlMatrix() ) );
+    auto matrix = this->ApplyMatrix(static_cast<vnl_matrix<T>>(R.GetVnlMatrix()));
+    res.SetVnlMatrix(matrix.as_ref());
     return res;
   }
-
 
   template<class T, unsigned int NDimension>
   vnl_matrix<T>

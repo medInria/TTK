@@ -224,23 +224,8 @@ namespace itk
     
     typedef typename InterpolatorType::OutputType OutputType;
 
-
-    /** NOT APPLICABLE FOR TENSORS */
-
-    /*
-    // Min/max values of the output pixel type AND these values
-    // represented as the output type of the interpolator
-    const PixelType minValue =  itk::NumericTraits<PixelType >::NonpositiveMin();
-    const PixelType maxValue =  itk::NumericTraits<PixelType >::max();
-    
-    const OutputType minOutputValue = static_cast<OutputType>(minValue);
-    const OutputType maxOutputValue = static_cast<OutputType>(maxValue);
-    */
-
-    
     // Walk the output region
     outIt.GoToBegin();
-
 
     // This fix works for images up to approximately 2^25 pixels in
     // any dimension.  If the image is larger than this, this constant
@@ -266,7 +251,7 @@ namespace itk
       // Therefore, the following routine uses a
       // precisionConstant that specifies the number of relevant bits,
       // and the value is truncated to this precision.
-      for (int i=0; i < ImageDimension; ++i)
+      for (int i=0; i < (int)ImageDimension; ++i)
       {
         double roundedInputIndex = std::floor(inputIndex[i]);
         double inputIndexFrac    = inputIndex[i] - roundedInputIndex;
@@ -280,12 +265,13 @@ namespace itk
         PixelType pixval;
         OutputType value = m_TensorInterpolator->EvaluateAtContinuousIndex(inputIndex);
 
-	value = value.ApplyMatrix(this->GetInput()->GetDirection());
+        value = value.ApplyMatrix(this->GetInput()->GetDirection());
 	
         value = m_TensorTransform->TransformTensorReverse (value);
 
-	value.SetVnlMatrix(value.ApplyMatrix (this->GetOutput()->GetDirection().GetTranspose()));
-	
+        auto matrix = value.ApplyMatrix(static_cast<typename decltype(value)::MatrixType>(this->GetOutput()->GetDirection().GetTranspose()));
+        value.SetVnlMatrix(matrix.GetVnlMatrix().as_ref());
+
         pixval = static_cast<PixelType>( value );
     
         outIt.Set( pixval );      
@@ -343,20 +329,6 @@ namespace itk
     // Cache information from the superclass
     PixelType defaultValue = this->GetDefaultPixelValue();
 
-
-    /** NOT APPLICABLE TO TENSORS */
-
-    /*
-    // Min/max values of the output pixel type AND these values
-    // represented as the output type of the interpolator
-    const PixelType minValue =  itk::NumericTraits<PixelType >::NonpositiveMin();
-    const PixelType maxValue =  itk::NumericTraits<PixelType >::max();
-    
-    const OutputType minOutputValue = static_cast<OutputType>(minValue);
-    const OutputType maxOutputValue = static_cast<OutputType>(maxValue);
-    */
-
-    
     // Determine the position of the first pixel in the scanline
     index = outIt.GetIndex();
     outputPtr->TransformIndexToPhysicalPoint( index, outputPoint );
@@ -409,7 +381,7 @@ namespace itk
     // Therefore, the following routine uses a
     // precisionConstant that specifies the number of relevant bits,
     // and the value is truncated to this precision.
-    for (int i=0; i < ImageDimension; ++i)
+    for (int i=0; i < (int)ImageDimension; ++i)
     {
       double roundedDelta = std::floor(delta[i]);
       double deltaFrac = delta[i] - roundedDelta;
@@ -443,7 +415,7 @@ namespace itk
       // Therefore, the following routine uses a
       // precisionConstant that specifies the number of relevant bits,
       // and the value is truncated to this precision.
-      for (int i=0; i < ImageDimension; ++i)
+      for (int i=0; i < (int)ImageDimension; ++i)
       {
         double roundedInputIndex = std::floor(inputIndex[i]);
         double inputIndexFrac = inputIndex[i] - roundedInputIndex;
@@ -460,12 +432,13 @@ namespace itk
           PixelType pixval;
           OutputType value = m_TensorInterpolator->EvaluateAtContinuousIndex(inputIndex);
 
-	  value = value.ApplyMatrix(this->GetInput()->GetDirection());
-	  
-	  value = m_TensorTransform->TransformTensor (value);
-	  
-	  value.SetVnlMatrix(value.ApplyMatrix (this->GetOutput()->GetDirection().GetTranspose()));
-	  
+          value = value.ApplyMatrix(this->GetInput()->GetDirection());
+          
+          value = m_TensorTransform->TransformTensor (value);
+          
+          auto matrix = value.ApplyMatrix(static_cast<typename decltype(value)::MatrixType>(this->GetOutput()->GetDirection().GetTranspose()));
+          value.SetVnlMatrix(matrix.GetVnlMatrix().as_ref());
+
           pixval = static_cast<PixelType>( value );
           outIt.Set( pixval );      
         }

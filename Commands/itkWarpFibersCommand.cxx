@@ -170,8 +170,8 @@ namespace itk
       pt_i[1] = pt[1];
       pt_i[2] = pt[2];
 
-
-      VectorImageType::PointType pt_n = 0.0;
+      VectorImageType::PointType pt_n;
+      pt_n.Fill(0.0);
 
       if( !vector.IsNull() )
       {

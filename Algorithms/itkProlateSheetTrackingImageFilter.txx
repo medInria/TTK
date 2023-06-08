@@ -178,8 +178,6 @@ void
 ProlateSheetTrackingImageFilter< TInputImage, TOutputImage >
 ::DynamicThreadedGenerateData(const OutputImageRegionType & outputRegion)
 {
-    typedef ZeroFluxNeumannBoundaryCondition<TOutputImage>                   BoundaryConditionType;
-    typedef ConstNeighborhoodIterator<InputImageType,BoundaryConditionType>  NIType;
     typedef ImageRegionConstIteratorWithIndex<InputImageType>                InputIteratorType;
     typedef ImageRegionIteratorWithIndex<OutputImageType>                    IteratorType;
     typedef ImageRegionIteratorWithIndex<ImageType>                          ImageIteratorType;

@@ -59,9 +59,6 @@ namespace itk
     
     InputIteratorType itIn(this->GetInput(), outputRegionForThread);
     OutputIteratorType itOut(this->GetOutput(), outputRegionForThread);
-    
-    unsigned long numPixels = outputRegionForThread.GetNumberOfPixels();
-    unsigned long step = numPixels/1000;
 
     while ( ! itOut.IsAtEnd() )
     {

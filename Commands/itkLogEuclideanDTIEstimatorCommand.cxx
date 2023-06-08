@@ -175,9 +175,10 @@ namespace itk
       fileg >> g[0];
       fileg >> g[1];
       fileg >> g[2];
-      if( g!=0.0 )
+
+      if (g.GetNorm() != 0.0)
       {
-	g.Normalize();
+          g.Normalize();
       }
       
       std::cout << g << std::endl;

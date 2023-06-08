@@ -165,7 +165,13 @@ DenseFiniteDifferenceImageFilter2<TInputImage, TOutputImage>
   this->GetMultiThreader()->SingleMethodExecute();
 
   // Resolve the single value time step to return
-  dt = this->ResolveTimeStep(str.TimeStepList, str.ValidTimeStepList);
+  std::vector<itk::Boolean> validTimeStepList;
+  validTimeStepList.reserve(str.ValidTimeStepList.size());
+  for (bool value : str.ValidTimeStepList)
+  {
+    validTimeStepList.push_back(static_cast<itk::Boolean>(value));
+  }
+  dt = this->ResolveTimeStep(str.TimeStepList, validTimeStepList);
 
   // Explicitely call Modified on m_UpdateBuffer here
   // since ThreadedCalculateChange changes this buffer
@@ -233,11 +239,7 @@ DenseFiniteDifferenceImageFilter2<TInputImage, TOutputImage>::TimeStepType
 DenseFiniteDifferenceImageFilter2<TInputImage, TOutputImage>
 ::ThreadedCalculateChange(const ThreadRegionType &regionToProcess, ThreadIdType)
 {
-  typedef typename OutputImageType::RegionType RegionType;
   typedef typename OutputImageType::SizeType   SizeType;
-  typedef typename OutputImageType::SizeValueType   SizeValueType;
-  typedef typename OutputImageType::IndexType  IndexType;
-  typedef typename OutputImageType::IndexValueType  IndexValueType;
   typedef typename FiniteDifferenceFunctionType::NeighborhoodType
     NeighborhoodIteratorType;
   typedef ImageRegionIterator<UpdateBufferType> UpdateIteratorType;

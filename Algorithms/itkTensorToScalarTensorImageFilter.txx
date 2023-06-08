@@ -52,7 +52,6 @@ namespace itk
     typedef ImageRegionIterator<OutputImageType>      IteratorOutputType;
     typedef ImageRegionConstIterator<InputImageType>  IteratorInputType;
 
-    unsigned long numPixels = outputRegionForThread.GetNumberOfPixels();
     unsigned long progress = 0;
 	
     IteratorOutputType itOut(this->GetOutput(), outputRegionForThread);
