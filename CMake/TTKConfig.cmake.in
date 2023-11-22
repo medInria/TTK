@@ -1,0 +1,55 @@
+@PACKAGE_INIT@
+
+
+if (CMAKE_VERSION VERSION_LESS @CMAKE_VERSION@)
+    message(FATAL_ERROR "TTK requires at least CMake version @CMAKE_VERSION@")
+endif()
+
+if (NOT TTK_FIND_COMPONENTS)
+    set(TTK_NOT_FOUND_MESSAGE "The TTK package requires at least one component")
+    set(TTK_FOUND False)
+    return()
+endif()
+
+
+
+set(_TTK_FIND_PARTS_REQUIRED)
+if (TTK_FIND_REQUIRED)
+    set(_TTK_FIND_PARTS_REQUIRED REQUIRED)
+endif()
+
+set(_TTK_FIND_PARTS_QUIET)
+if (TTK_FIND_QUIETLY)
+    set(_TTK_FIND_PARTS_QUIET QUIET)
+endif()
+
+get_filename_component(_ttk_install_prefix "${CMAKE_CURRENT_LIST_DIR}/.." ABSOLUTE)
+
+set(_TTK_NOTFOUND_MESSAGE)
+
+include(${CMAKE_CURRENT_LIST_DIR}/TTKModuleLocation.cmake)
+
+foreach(module ${TTK_FIND_COMPONENTS})
+    find_package(${module}
+        ${_TTK_FIND_PARTS_QUIET}
+        ${_TTK_FIND_PARTS_REQUIRED}
+        PATHS ${_ttk_module_paths} NO_DEFAULT_PATH
+    )
+    if (NOT ${module}_FOUND)
+        string(CONFIGURE ${_ttk_module_location_template} _expected_module_location @ONLY)
+
+        if (TTK_FIND_REQUIRED_${module})
+            set(_TTK_NOTFOUND_MESSAGE "${_TTK_NOTFOUND_MESSAGE}Failed to find TTK component \"${module}\" config file at \"${_expected_module_location}\"\n")
+        elseif(NOT TTK_FIND_QUIETLY)
+            message(WARNING "Failed to find TTK component \"${module}\" config file at \"${_expected_module_location}\"")
+        endif()
+
+        unset(_expected_module_location)
+    endif()
+endforeach()
+
+if (_TTK_NOTFOUND_MESSAGE)
+    set(TTK_NOTFOUND_MESSAGE "${_TTK_NOTFOUND_MESSAGE}")
+    set(TTK_FOUND False)
+endif()
+

@@ -19,10 +19,12 @@
 
 #include "itkObjectFactoryBase.h"
 
+#include <ttkCommands/ttkCommandsExport.h>
+
 namespace itk
 {
-  
-  class AddGaussianNoiseToTensorsCommandFactory : public ObjectFactoryBase
+
+  class TTKCOMMANDS_EXPORT AddGaussianNoiseToTensorsCommandFactory : public ObjectFactoryBase
   {
     
   public:

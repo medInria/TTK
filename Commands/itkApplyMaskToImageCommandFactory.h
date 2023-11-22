@@ -19,10 +19,12 @@
 
 #include "itkObjectFactoryBase.h"
 
+#include <ttkUtilCommands/ttkUtilCommandsExport.h>
+
 namespace itk
 {
   
-  class ApplyMaskToImageCommandFactory : public ObjectFactoryBase
+  class TTKUTILCOMMANDS_EXPORT ApplyMaskToImageCommandFactory : public ObjectFactoryBase
   {
     
   public:

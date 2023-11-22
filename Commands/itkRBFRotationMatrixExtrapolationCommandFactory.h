@@ -19,10 +19,12 @@
 
 #include "itkObjectFactoryBase.h"
 
+#include <ttkUtilCommands/ttkUtilCommandsExport.h>
+
 namespace itk
 {
   
-  class RBFRotationMatrixExtrapolationCommandFactory : public ObjectFactoryBase
+  class TTKUTILCOMMANDS_EXPORT RBFRotationMatrixExtrapolationCommandFactory : public ObjectFactoryBase
   {
     
   public:

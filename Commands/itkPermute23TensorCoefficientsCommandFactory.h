@@ -19,10 +19,12 @@
 
 #include "itkObjectFactoryBase.h"
 
+#include <ttkUtilCommands/ttkUtilCommandsExport.h>
+
 namespace itk
 {
   
-  class Permute23TensorCoefficientsCommandFactory : public ObjectFactoryBase
+  class TTKUTILCOMMANDS_EXPORT Permute23TensorCoefficientsCommandFactory : public ObjectFactoryBase
   {
     
   public:

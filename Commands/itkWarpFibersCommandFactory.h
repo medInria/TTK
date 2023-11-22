@@ -19,10 +19,12 @@
 
 #include "itkObjectFactoryBase.h"
 
+#include <ttkCommands/ttkCommandsExport.h>
+
 namespace itk
 {
-  
-  class WarpFibersCommandFactory : public ObjectFactoryBase
+
+  class TTKCOMMANDS_EXPORT WarpFibersCommandFactory : public ObjectFactoryBase
   {
     
   public:

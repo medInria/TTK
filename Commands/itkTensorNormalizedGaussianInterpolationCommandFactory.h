@@ -19,10 +19,12 @@
 
 #include "itkObjectFactoryBase.h"
 
+#include <ttkCommands/ttkCommandsExport.h>
+
 namespace itk
 {
-  
-  class TensorNormalizedGaussianInterpolationCommandFactory : public ObjectFactoryBase
+
+  class TTKCOMMANDS_EXPORT TensorNormalizedGaussianInterpolationCommandFactory : public ObjectFactoryBase
   {
     
   public:

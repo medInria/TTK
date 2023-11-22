@@ -9,11 +9,13 @@
 
 #include <vtkSmartPointer.h>
 
+#include <ttkAlgorithmsExport.h>
+
 class vtkPolyData;
 
 namespace itk
 {
-    class FiberBundleStatisticsCalculator : public Object
+    class TTKALGORITHMS_EXPORT FiberBundleStatisticsCalculator : public Object
     {
     public:
         using Self         = FiberBundleStatisticsCalculator;

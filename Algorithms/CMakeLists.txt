@@ -1,27 +1,36 @@
-if(NOT ${PROJECT_NAME}_INSTALL_NO_DEVELOPMENT)
-  file(GLOB __files1 "${CMAKE_CURRENT_SOURCE_DIR}/*.h")
-  file(GLOB __files2 "${CMAKE_CURRENT_SOURCE_DIR}/*.txx")
-  file(GLOB __files3 "${CMAKE_CURRENT_SOURCE_DIR}/*.hpp")
-  install(FILES ${__files1} ${__files2} ${__files3}
-    DESTINATION include
-    COMPONENT   Development
-  )
-endif(NOT ${PROJECT_NAME}_INSTALL_NO_DEVELOPMENT)
+set(TARGET_NAME ttkAlgorithms)
 
-add_library(ttkAlgorithms ${TTK_BUILD_TYPE}
-itkFiberBundleStatisticsCalculator.cxx
-)
+file(GLOB __headers              "${CMAKE_CURRENT_SOURCE_DIR}/*.h")
+file(GLOB __templateImplemtation "${CMAKE_CURRENT_SOURCE_DIR}/*.txx")
+file(GLOB __templateHeaders      "${CMAKE_CURRENT_SOURCE_DIR}/*.hpp")
 
-target_link_libraries(ttkAlgorithms
-  ITKCommon
-  ${VTK_LIBRARIES}
-)
-
-if(NOT ${PROJECT_NAME}_INSTALL_NO_LIBRARIES)
-  install(TARGETS ttkAlgorithms
-    RUNTIME DESTINATION bin
-    LIBRARY DESTINATION lib
-    ARCHIVE DESTINATION lib
+SET(${TARGET_NAME}_HEADERS_ALGORITHMS
+    ${__headers}
+    ${__templateImplemtation}
+    ${__templateHeaders}
     )
-endif(NOT ${PROJECT_NAME}_INSTALL_NO_LIBRARIES)
+    
+# Create convertLinearToDF executable
+ADD_LIBRARY(                ${TARGET_NAME} ${TTK_BUILD_TYPE})
+TARGET_LINK_LIBRARIES(      ${TARGET_NAME} PRIVATE ITKCommon ${VTK_LIBRARIES} ITKTensor)
+TARGET_SOURCES(             ${TARGET_NAME} PRIVATE itkFiberBundleStatisticsCalculator.cxx)
+TARGET_SOURCES(             ${TARGET_NAME} PUBLIC 
+                              FILE_SET "publicHeadersAlgorithms" 
+                              TYPE HEADERS 
+                              BASE_DIRS ${CMAKE_SOURCE_DIR}/Algorithms
+                              FILES ${${TARGET_NAME}_HEADERS_ALGORITHMS})
+                             
+TARGET_INCLUDE_DIRECTORIES( ${TARGET_NAME} PUBLIC
+                              "$<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/Algorithms;${CMAKE_BINARY_DIR}/Algorithms>"
+                              "$<INSTALL_INTERFACE:$<INSTALL_PREFIX>include/Algorithms>")
+
+generate_export_header(${TARGET_NAME}
+  STATIC_DEFINE ${TARGET_NAME}_BUILT_AS_STATIC
+  EXPORT_FILE_NAME "${TARGET_NAME}Export.h"
+  )
+install(FILES ${PROJECT_BINARY_DIR}/Algorithms/${TARGET_NAME}Export.h DESTINATION include/Algorithms)
+
+SET (FILESET_INSTALL_DIR_publicHeadersAlgorithms Algorithms)
+                              
+export_and_install_libs(${TARGET_NAME})
 

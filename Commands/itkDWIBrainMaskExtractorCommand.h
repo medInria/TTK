@@ -19,9 +19,11 @@
 
 #include "itkCommandObjectBase.h"
 
+#include <ttkUtilCommands/ttkUtilCommandsExport.h>
+
 namespace itk {
 
-  class DWIBrainMaskExtractorCommand : public CommandObjectBase
+  class TTKUTILCOMMANDS_EXPORT DWIBrainMaskExtractorCommand : public CommandObjectBase
   {
     
   public:

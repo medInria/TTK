@@ -19,10 +19,12 @@
 
 #include "itkObjectFactoryBase.h"
 
+#include <ttkCommands/ttkCommandsExport.h>
+
 namespace itk
 {
-  
-  class ResampleTensorImageCommandFactory : public ObjectFactoryBase
+
+  class TTKCOMMANDS_EXPORT ResampleTensorImageCommandFactory : public ObjectFactoryBase
   {
     
   public:

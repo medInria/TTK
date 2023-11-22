@@ -20,11 +20,13 @@
 #include "itkNumericTraits.h"
 #include "itkTensor.h"
 
+#include <ITKTensorExport.h>
+
 // This file is meant to define numeric traits for tensor pixels types in itk
 
 namespace itk
 {
-template <> class NumericTraits<Tensor<unsigned char, 1 > > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<unsigned char, 1 > > {
 public:
   using ValueType      = unsigned char;
   using PrintType      = Tensor<unsigned char, 1>;
@@ -34,7 +36,7 @@ public:
   using ScalarRealType = double;
   const static bool is_integer=true;
 };
-template <> class NumericTraits<Tensor<signed char, 1> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<signed char, 1> > {
 public:
   using ValueType      = signed char;
   using PrintType      = Tensor<signed char, 1>;
@@ -44,7 +46,7 @@ public:
   using ScalarRealType = double;
   const static bool is_integer=true;
 };
-template <> class NumericTraits<Tensor<char, 1> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<char, 1> > {
 public:
   using ValueType      = char;
   using PrintType      = Tensor<char, 1>;
@@ -54,7 +56,7 @@ public:
   using ScalarRealType = double;
   const static bool is_integer=true;
 };
-template <> class NumericTraits<Tensor<short, 1> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<short, 1> > {
 public:
   using ValueType      = short;
   using PrintType      = Tensor<short, 1>;
@@ -64,7 +66,7 @@ public:
   using ScalarRealType = double;
   const static bool is_integer=true;
 };
-template <> class NumericTraits<Tensor<unsigned short, 1> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<unsigned short, 1> > {
 public:
   using ValueType      = unsigned short;
   using PrintType      = Tensor<unsigned short, 1>;
@@ -74,7 +76,7 @@ public:
   using ScalarRealType = double;
   const static bool is_integer=true;
 };
-template <> class NumericTraits<Tensor<int, 1> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<int, 1> > {
 public:
   using ValueType      = int;
   using PrintType      = Tensor<int, 1>;
@@ -84,7 +86,7 @@ public:
   using ScalarRealType = double;
   const static bool is_integer=true;
 };
-template <> class NumericTraits<Tensor<unsigned int, 1> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<unsigned int, 1> > {
 public:
   using ValueType      = unsigned int;
   using PrintType      = Tensor<unsigned int, 1>;
@@ -94,7 +96,7 @@ public:
   using ScalarRealType = double;
   const static bool is_integer=true;
 };
-template <> class NumericTraits<Tensor<long, 1> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<long, 1> > {
 public:
   using ValueType      = long;
   using PrintType      = Tensor<long, 1>;
@@ -104,7 +106,7 @@ public:
   using ScalarRealType = double;
   const static bool is_integer=true;
 };
-template <> class NumericTraits<Tensor<unsigned long, 1> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<unsigned long, 1> > {
 public:
   using ValueType      = unsigned long;
   using PrintType      = Tensor<unsigned long, 1>;
@@ -113,7 +115,7 @@ public:
   using RealType       = Tensor<double, 1>;
   const static bool is_integer=true;
 };
-template <> class NumericTraits<Tensor<float, 1> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<float, 1> > {
 public:
   using ValueType      = float;
   using PrintType      = Tensor<float, 1>;
@@ -123,7 +125,7 @@ public:
   using ScalarRealType = double;
   const static bool is_integer=false;
 };
-template <> class NumericTraits<Tensor<double, 1> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<double, 1> > {
 public:
   using ValueType      = double;
   using PrintType      = Tensor<double, 1>;
@@ -133,7 +135,7 @@ public:
   using ScalarRealType = double;
   const static bool is_integer=false;
 };
-template <> class NumericTraits<Tensor<long double, 1> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<long double, 1> > {
 public:
   using ValueType      = long double;
   using PrintType      = Tensor<long double, 1>;
@@ -144,7 +146,7 @@ public:
   const static bool is_integer=false;
 };
 
-template <> class NumericTraits<Tensor<unsigned char, 2 > > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<unsigned char, 2 > > {
 public:
   using ValueType      = unsigned char;
   using PrintType      = Tensor<unsigned char, 2>;
@@ -154,7 +156,7 @@ public:
   using ScalarRealType = double;
   const static bool is_integer=true;
 };
-template <> class NumericTraits<Tensor<signed char, 2> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<signed char, 2> > {
 public:
   using ValueType      = signed char;
   using PrintType      = Tensor<signed char, 2>;
@@ -164,7 +166,7 @@ public:
   using ScalarRealType = double;
   const static bool is_integer=true;
 };
-template <> class NumericTraits<Tensor<char, 2> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<char, 2> > {
 public:
   using ValueType      = char;
   using PrintType      = Tensor<char, 2>;
@@ -174,7 +176,7 @@ public:
   using ScalarRealType = double;
   const static bool is_integer=true;
 };
-template <> class NumericTraits<Tensor<short, 2> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<short, 2> > {
 public:
  using ValueType      = short;
  using PrintType      = Tensor<short, 2>;
@@ -184,7 +186,7 @@ public:
  using ScalarRealType = double;
   const static bool is_integer=true;
 };
-template <> class NumericTraits<Tensor<unsigned short, 2> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<unsigned short, 2> > {
 public:
   using ValueType      = unsigned short;
   using PrintType      = Tensor<unsigned short, 2>;
@@ -194,7 +196,7 @@ public:
   using ScalarRealType = double;
   const static bool is_integer=true;
 };
-template <> class NumericTraits<Tensor<int, 2> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<int, 2> > {
 public:
   using ValueType      = int;
   using PrintType      = Tensor<int, 2>;
@@ -204,7 +206,7 @@ public:
   using ScalarRealType = double;
   const static bool is_integer=true;
 };
-template <> class NumericTraits<Tensor<unsigned int, 2> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<unsigned int, 2> > {
 public:
   using ValueType      = unsigned int;
   using PrintType      = Tensor<unsigned int, 2>;
@@ -214,7 +216,7 @@ public:
   using ScalarRealType = double;
   const static bool is_integer=true;
 };
-template <> class NumericTraits<Tensor<long, 2> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<long, 2> > {
 public:
   using ValueType      = long;
   using PrintType      = Tensor<long, 2>;
@@ -224,7 +226,7 @@ public:
   using ScalarRealType = double;
   const static bool is_integer=true;
 };
-template <> class NumericTraits<Tensor<unsigned long, 2> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<unsigned long, 2> > {
 public:
   using ValueType      = unsigned long;
   using PrlongType     = Tensor<unsigned long, 2>;
@@ -233,7 +235,7 @@ public:
   using RealType       = Tensor<double, 2>;
   const static bool is_integer=true;
 };
-template <> class NumericTraits<Tensor<float, 2> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<float, 2> > {
 public:
   using ValueType      = float;
   using PrintType      = Tensor<float, 2>;
@@ -243,7 +245,7 @@ public:
   using ScalarRealType = double;
   const static bool is_integer=false;
 };
-template <> class NumericTraits<Tensor<double, 2> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<double, 2> > {
 public:
   using ValueType      = double;
   using PrintType      = Tensor<double, 2>;
@@ -255,7 +257,7 @@ public:
   static Tensor< double,2 > ZeroValue() { return Zero; }
   const static bool is_integer=false;
 };
-template <> class NumericTraits<Tensor<long double, 2> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<long double, 2> > {
 public:
   using ValueType      = long double;
   using PrintType      = Tensor<long double, 2>;
@@ -266,7 +268,7 @@ public:
   const static bool is_integer=false;
 };
 
-template <> class NumericTraits<Tensor<unsigned char, 3 > > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<unsigned char, 3 > > {
 public:
   using ValueType      = unsigned char;
   using PrintType      = Tensor<unsigned char, 3>;
@@ -276,7 +278,7 @@ public:
   using ScalarRealType = double;
   const static bool is_integer=true;
 };
-template <> class NumericTraits<Tensor<signed char, 3> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<signed char, 3> > {
 public:
   using ValueType      = signed char;
   using PrintType      = Tensor<signed char, 3>;
@@ -286,7 +288,7 @@ public:
   using ScalarRealType = double;
   const static bool is_integer=true;
 };
-template <> class NumericTraits<Tensor<char, 3> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<char, 3> > {
 public:
   using ValueType      = char;
   using PrintType      = Tensor<char, 3>;
@@ -296,7 +298,7 @@ public:
   using ScalarRealType = double;
   const static bool is_integer=true;
 };
-template <> class NumericTraits<Tensor<short, 3> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<short, 3> > {
 public:
   using ValueType      = short;
   using PrintType      = Tensor<short, 3>;
@@ -306,7 +308,7 @@ public:
   using ScalarRealType = double;
   const static bool is_integer=true;
 };
-template <> class NumericTraits<Tensor<unsigned short, 3> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<unsigned short, 3> > {
 public:
   using ValueType      = unsigned short;
   using PrintType      = Tensor<unsigned short, 3>;
@@ -316,7 +318,7 @@ public:
   using ScalarRealType = double;
   const static bool is_integer=true;
 };
-template <> class NumericTraits<Tensor<int, 3> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<int, 3> > {
 public:
   using ValueType      = int;
   using PrintType      = Tensor<int, 3>;
@@ -326,7 +328,7 @@ public:
   using ScalarRealType = double;
   const static bool is_integer=true;
 };
-template <> class NumericTraits<Tensor<unsigned int, 3> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<unsigned int, 3> > {
 public:
   using ValueType      = unsigned int;
   using PrintType      = Tensor<unsigned int, 3>;
@@ -336,7 +338,7 @@ public:
   using ScalarRealType = double;
   const static bool is_integer=true;
 };
-template <> class NumericTraits<Tensor<long, 3> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<long, 3> > {
 public:
   using ValueType      = long;
   using PrintType      = Tensor<long, 3>;
@@ -346,7 +348,7 @@ public:
   using ScalarRealType = double;
   const static bool is_integer=true;
 };
-template <> class NumericTraits<Tensor<unsigned long, 3> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<unsigned long, 3> > {
 public:
   using ValueType      = unsigned long;
   using PrlongType     = Tensor<unsigned long, 3>;
@@ -355,7 +357,7 @@ public:
   using RealType       = Tensor<double, 3>;
   const static bool is_integer=true;
 };
-template <> class NumericTraits<Tensor<float, 3> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<float, 3> > {
 public:
   using ValueType      = float;
   using PrintType      = Tensor<float, 3>;
@@ -379,7 +381,7 @@ public:
   const static bool is_integer=false;
   const static bool is_signed=true;
 };
-template <> class NumericTraits<Tensor<double, 3> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<double, 3> > {
 public:
   using ValueType      = double;
   using PrintType      = Tensor<double, 3>;
@@ -402,7 +404,7 @@ public:
   const static bool is_integer=false;
   const static bool is_signed=true;
 };
-template <> class NumericTraits<Tensor<long double, 3> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<long double, 3> > {
 public:
   using ValueType      = long double;
   using PrintType      = Tensor<long double, 3>;
@@ -415,7 +417,7 @@ public:
   const static bool is_integer=false;
 };
 
-template <> class NumericTraits<Tensor<unsigned char, 4 > > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<unsigned char, 4 > > {
 public:
   using ValueType      = unsigned char;
   using PrintType      = Tensor<unsigned char, 4>;
@@ -425,7 +427,7 @@ public:
   using ScalarRealType = double;
   const static bool is_integer=true;
 };
-template <> class NumericTraits<Tensor<signed char, 4> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<signed char, 4> > {
 public:
   using ValueType      = signed char;
   using PrintType      = Tensor<signed char, 4>;
@@ -435,7 +437,7 @@ public:
   using ScalarRealType = double;
   const static bool is_integer=true;
 };
-template <> class NumericTraits<Tensor<char, 4> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<char, 4> > {
 public:
   using ValueType      = char;
   using PrintType      = Tensor<char, 4>;
@@ -445,7 +447,7 @@ public:
   using ScalarRealType = double;
   const static bool is_integer=true;
 };
-template <> class NumericTraits<Tensor<short, 4> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<short, 4> > {
 public:
   using ValueType      = short;
   using PrintType      = Tensor<short, 4>;
@@ -455,7 +457,7 @@ public:
   using ScalarRealType = double;
   const static bool is_integer=true;
 };
-template <> class NumericTraits<Tensor<unsigned short, 4> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<unsigned short, 4> > {
 public:
   using ValueType      = unsigned short;
   using PrintType      = Tensor<unsigned short, 4>;
@@ -465,7 +467,7 @@ public:
   using ScalarRealType = double;
   const static bool is_integer=true;
 };
-template <> class NumericTraits<Tensor<int, 4> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<int, 4> > {
 public:
   using ValueType      = int;
   using PrintType      = Tensor<int, 4>;
@@ -475,7 +477,7 @@ public:
   using ScalarRealType = double;
   const static bool is_integer=true;
 };
-template <> class NumericTraits<Tensor<unsigned int, 4> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<unsigned int, 4> > {
 public:
   using ValueType      = unsigned int;
   using PrintType      = Tensor<unsigned int, 4>;
@@ -485,7 +487,7 @@ public:
   using ScalarRealType = double;
   const static bool is_integer=true;
 };
-template <> class NumericTraits<Tensor<long, 4> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<long, 4> > {
 public:
   using ValueType      = long;
   using PrintType      = Tensor<long, 4>;
@@ -495,7 +497,7 @@ public:
   using ScalarRealType = double;
   const static bool is_integer=true;
 };
-template <> class NumericTraits<Tensor<unsigned long, 4> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<unsigned long, 4> > {
 public:
   using ValueType      = unsigned long;
   using PrlongType     = Tensor<unsigned long, 4>;
@@ -504,7 +506,7 @@ public:
   using RealType       = Tensor<double, 4>;
   const static bool is_integer=true;
 };
-template <> class NumericTraits<Tensor<float, 4> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<float, 4> > {
 public:
   using ValueType      = float;
   using PrintType      = Tensor<float, 4>;
@@ -514,7 +516,7 @@ public:
   using ScalarRealType = double;
   const static bool is_integer=false;
 };
-template <> class NumericTraits<Tensor<double, 4> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<double, 4> > {
 public:
   using ValueType      = double;
   using PrintType      = Tensor<double, 4>;
@@ -524,7 +526,7 @@ public:
   using ScalarRealType = double;
   const static bool is_integer=false;
 };
-template <> class NumericTraits<Tensor<long double, 4> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<long double, 4> > {
 public:
   using ValueType      = long double;
   using PrintType      = Tensor<long double, 4>;
@@ -535,7 +537,7 @@ public:
   const static bool is_integer=false;
 };
 
-template <> class NumericTraits<Tensor<unsigned char, 5 > > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<unsigned char, 5 > > {
 public:
   using ValueType      = unsigned char;
   using PrintType      = Tensor<unsigned char, 5>;
@@ -545,7 +547,7 @@ public:
   using ScalarRealType = double;
   const static bool is_integer=true;
 };
-template <> class NumericTraits<Tensor<signed char, 5> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<signed char, 5> > {
 public:
   using ValueType      = signed char;
   using PrintType      = Tensor<signed char, 5>;
@@ -555,7 +557,7 @@ public:
   using ScalarRealType = double;
   const static bool is_integer=true;
 };
-template <> class NumericTraits<Tensor<char, 5> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<char, 5> > {
 public:
   using ValueType      = char;
   using PrintType      = Tensor<char, 5>;
@@ -565,7 +567,7 @@ public:
   using ScalarRealType = double;
   const static bool is_integer=true;
 };
-template <> class NumericTraits<Tensor<short, 5> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<short, 5> > {
 public:
   using ValueType      = short;
   using PrintType      = Tensor<short, 5>;
@@ -575,7 +577,7 @@ public:
   using ScalarRealType = double;
   const static bool is_integer=true;
 };
-template <> class NumericTraits<Tensor<unsigned short, 5> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<unsigned short, 5> > {
 public:
   using ValueType      = unsigned short;
   using PrintType      = Tensor<unsigned short, 5>;
@@ -585,7 +587,7 @@ public:
   using ScalarRealType = double;
   const static bool is_integer=true;
 };
-template <> class NumericTraits<Tensor<int, 5> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<int, 5> > {
 public:
   using ValueType      = int;
   using PrintType      = Tensor<int, 5>;
@@ -595,7 +597,7 @@ public:
   using ScalarRealType = double;
   const static bool is_integer=true;
 };
-template <> class NumericTraits<Tensor<unsigned int, 5> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<unsigned int, 5> > {
 public:
   using ValueType      = unsigned int;
   using PrintType      = Tensor<unsigned int, 5>;
@@ -605,7 +607,7 @@ public:
   using ScalarRealType = double;
   const static bool is_integer=true;
 };
-template <> class NumericTraits<Tensor<long, 5> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<long, 5> > {
 public:
   using ValueType      = long;
   using PrintType      = Tensor<long, 5>;
@@ -615,7 +617,7 @@ public:
   using ScalarRealType = double;
   const static bool is_integer=true;
 };
-template <> class NumericTraits<Tensor<unsigned long, 5> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<unsigned long, 5> > {
 public:
   using ValueType      = unsigned long;
   using PrlongType     = Tensor<unsigned long, 5>;
@@ -624,7 +626,7 @@ public:
   using RealType       = Tensor<double, 5>;
   const static bool is_integer=true;
 };
-template <> class NumericTraits<Tensor<float, 5> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<float, 5> > {
 public:
   using ValueType      = float;
   using PrintType      = Tensor<float, 5>;
@@ -634,7 +636,7 @@ public:
   using ScalarRealType = double;
   const static bool is_integer=false;
 };
-template <> class NumericTraits<Tensor<double, 5> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<double, 5> > {
 public:
   using ValueType      = double;
   using PrintType      = Tensor<double, 5>;
@@ -644,7 +646,7 @@ public:
   using ScalarRealType = double;
   const static bool is_integer=false;
 };
-template <> class NumericTraits<Tensor<long double, 5> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<long double, 5> > {
 public:
   using ValueType      = long double;
   using PrintType      = Tensor<long double, 5>;
@@ -655,7 +657,7 @@ public:
   const static bool is_integer=false;
 };
 
-template <> class NumericTraits<Tensor<unsigned char, 6 > > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<unsigned char, 6 > > {
 public:
   using ValueType      = unsigned char;
   using PrintType      = Tensor<unsigned char, 6>;
@@ -665,7 +667,7 @@ public:
   using ScalarRealType = double;
   const static bool is_integer=true;
 };
-template <> class NumericTraits<Tensor<signed char, 6> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<signed char, 6> > {
 public:
   using ValueType      = signed char;
   using PrintType      = Tensor<signed char, 6>;
@@ -675,7 +677,7 @@ public:
   using ScalarRealType = double;
   const static bool is_integer=true;
 };
-template <> class NumericTraits<Tensor<char, 6> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<char, 6> > {
 public:
   using ValueType      = char;
   using PrintType      = Tensor<char, 6>;
@@ -685,7 +687,7 @@ public:
   using ScalarRealType = double;
   const static bool is_integer=true;
 };
-template <> class NumericTraits<Tensor<short, 6> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<short, 6> > {
 public:
   using ValueType      = short;
   using PrintType      = Tensor<short, 6>;
@@ -695,7 +697,7 @@ public:
   using ScalarRealType = double;
   const static bool is_integer=true;
 };
-template <> class NumericTraits<Tensor<unsigned short, 6> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<unsigned short, 6> > {
 public:
   using ValueType      = unsigned short;
   using PrintType      = Tensor<unsigned short, 6>;
@@ -705,7 +707,7 @@ public:
   using ScalarRealType = double;
   const static bool is_integer=true;
 };
-template <> class NumericTraits<Tensor<int, 6> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<int, 6> > {
 public:
   using ValueType      = int;
   using PrintType      = Tensor<int, 6>;
@@ -715,7 +717,7 @@ public:
   using ScalarRealType = double;
   const static bool is_integer=true;
 };
-template <> class NumericTraits<Tensor<unsigned int, 6> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<unsigned int, 6> > {
 public:
   using ValueType      = unsigned int;
   using PrintType      = Tensor<unsigned int, 6>;
@@ -725,7 +727,7 @@ public:
   using ScalarRealType = double;
   const static bool is_integer=true;
 };
-template <> class NumericTraits<Tensor<long, 6> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<long, 6> > {
 public:
   using ValueType      = long;
   using PrintType      = Tensor<long, 6>;
@@ -735,7 +737,7 @@ public:
   using ScalarRealType = double;
   const static bool is_integer=true;
 };
-template <> class NumericTraits<Tensor<unsigned long, 6> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<unsigned long, 6> > {
 public:
   using ValueType      = unsigned long;
   using PrlongType     = Tensor<unsigned long, 6>;
@@ -744,7 +746,7 @@ public:
   using RealType       = Tensor<double, 6>;
   const static bool is_integer=true;
 };
-template <> class NumericTraits<Tensor<float, 6> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<float, 6> > {
 public:
   using ValueType      = float;
   using PrintType      = Tensor<float, 6>;
@@ -754,7 +756,7 @@ public:
   using ScalarRealType = double;
   const static bool is_integer=false;
 };
-template <> class NumericTraits<Tensor<double, 6> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<double, 6> > {
 public:
   using ValueType      = double;
   using PrintType      = Tensor<double, 6>;
@@ -765,7 +767,7 @@ public:
   static unsigned int GetLength(Tensor<double, 6> &t);
   const static bool is_integer=false;
 };
-template <> class NumericTraits<Tensor<long double, 6> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<long double, 6> > {
 public:
   using ValueType      = long double;
   using PrintType      = Tensor<long double, 6>;
@@ -776,7 +778,7 @@ public:
   const static bool is_integer=false;
 };
 
-template <> class NumericTraits<Tensor<unsigned char, 7 > > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<unsigned char, 7 > > {
 public:
   using ValueType      = unsigned char;
   using PrintType      = Tensor<unsigned char, 7>;
@@ -786,7 +788,7 @@ public:
   using ScalarRealType = double;
   const static bool is_integer=true;
 };
-template <> class NumericTraits<Tensor<signed char, 7> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<signed char, 7> > {
 public:
   using ValueType      = signed char;
   using PrintType      = Tensor<signed char, 7>;
@@ -796,7 +798,7 @@ public:
   using ScalarRealType = double;
   const static bool is_integer=true;
 };
-template <> class NumericTraits<Tensor<char, 7> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<char, 7> > {
 public:
   using ValueType      = char;
   using PrintType      = Tensor<char, 7>;
@@ -806,7 +808,7 @@ public:
   using ScalarRealType = double;
   const static bool is_integer=true;
 };
-template <> class NumericTraits<Tensor<short, 7> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<short, 7> > {
 public:
   using ValueType      = short;
   using PrintType      = Tensor<short, 7>;
@@ -816,7 +818,7 @@ public:
   using ScalarRealType = double;
   const static bool is_integer=true;
 };
-template <> class NumericTraits<Tensor<unsigned short, 7> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<unsigned short, 7> > {
 public:
   using ValueType      = unsigned short;
   using PrintType      = Tensor<unsigned short, 7>;
@@ -826,7 +828,7 @@ public:
   using ScalarRealType = double;
   const static bool is_integer=true;
 };
-template <> class NumericTraits<Tensor<int, 7> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<int, 7> > {
 public:
   using ValueType      = int;
   using PrintType      = Tensor<int, 7>;
@@ -836,7 +838,7 @@ public:
   using ScalarRealType = double;
   const static bool is_integer=true;
 };
-template <> class NumericTraits<Tensor<unsigned int, 7> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<unsigned int, 7> > {
 public:
   using ValueType      = unsigned int;
   using PrintType      = Tensor<unsigned int, 7>;
@@ -846,7 +848,7 @@ public:
   using ScalarRealType = double;
   const static bool is_integer=true;
 };
-template <> class NumericTraits<Tensor<long, 7> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<long, 7> > {
 public:
   using ValueType      = long;
   using PrintType      = Tensor<long, 7>;
@@ -856,7 +858,7 @@ public:
   using ScalarRealType = double;
   const static bool is_integer=true;
 };
-template <> class NumericTraits<Tensor<unsigned long, 7> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<unsigned long, 7> > {
 public:
   using ValueType      = unsigned long;
   using PrlongType     = Tensor<unsigned long, 7>;
@@ -865,7 +867,7 @@ public:
   using RealType       = Tensor<double, 7>;
   const static bool is_integer=true;
 };
-template <> class NumericTraits<Tensor<float, 7> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<float, 7> > {
 public:
   using ValueType      = float;
   using PrintType      = Tensor<float, 7>;
@@ -875,7 +877,7 @@ public:
   using ScalarRealType = double;
   const static bool is_integer=false;
 };
-template <> class NumericTraits<Tensor<double, 7> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<double, 7> > {
 public:
   using ValueType      = double;
   using PrintType      = Tensor<double, 7>;
@@ -885,7 +887,7 @@ public:
   using ScalarRealType = double;
   const static bool is_integer=false;
 };
-template <> class NumericTraits<Tensor<long double, 7> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<long double, 7> > {
 public:
   using ValueType      = long double;
   using PrintType      = Tensor<long double, 7>;
@@ -896,7 +898,7 @@ public:
   const static bool is_integer=false;
 };
 
-template <> class NumericTraits<Tensor<unsigned char, 8 > > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<unsigned char, 8 > > {
 public:
   using ValueType      = unsigned char;
   using PrintType      = Tensor<unsigned char, 8>;
@@ -906,7 +908,7 @@ public:
   using ScalarRealType = double;
   const static bool is_integer=true;
 };
-template <> class NumericTraits<Tensor<signed char, 8> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<signed char, 8> > {
 public:
   using ValueType      = signed char;
   using PrintType      = Tensor<signed char, 8>;
@@ -916,7 +918,7 @@ public:
   using ScalarRealType = double;
   const static bool is_integer=true;
 };
-template <> class NumericTraits<Tensor<char, 8> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<char, 8> > {
 public:
   using ValueType      = char;
   using PrintType      = Tensor<char, 8>;
@@ -926,7 +928,7 @@ public:
   using ScalarRealType = double;
   const static bool is_integer=true;
 };
-template <> class NumericTraits<Tensor<short, 8> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<short, 8> > {
 public:
   using ValueType      = short;
   using PrintType      = Tensor<short, 8>;
@@ -936,7 +938,7 @@ public:
   using ScalarRealType = double;
   const static bool is_integer=true;
 };
-template <> class NumericTraits<Tensor<unsigned short, 8> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<unsigned short, 8> > {
 public:
   using ValueType      = unsigned short;
   using PrintType      = Tensor<unsigned short, 8>;
@@ -946,7 +948,7 @@ public:
   using ScalarRealType = double;
   const static bool is_integer=true;
 };
-template <> class NumericTraits<Tensor<int, 8> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<int, 8> > {
 public:
   using ValueType      = int;
   using PrintType      = Tensor<int, 8>;
@@ -956,7 +958,7 @@ public:
   using ScalarRealType = double;
   const static bool is_integer=true;
 };
-template <> class NumericTraits<Tensor<unsigned int, 8> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<unsigned int, 8> > {
 public:
   using ValueType      = unsigned int;
   using PrintType      = Tensor<unsigned int, 8>;
@@ -966,7 +968,7 @@ public:
   using ScalarRealType = double;
   const static bool is_integer=true;
 };
-template <> class NumericTraits<Tensor<long, 8> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<long, 8> > {
 public:
   using ValueType      = long;
   using PrintType      = Tensor<long, 8>;
@@ -976,7 +978,7 @@ public:
   using ScalarRealType = double;
   const static bool is_integer=true;
 };
-template <> class NumericTraits<Tensor<unsigned long, 8> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<unsigned long, 8> > {
 public:
   using ValueType      = unsigned long;
   using PrlongType     = Tensor<unsigned long, 8>;
@@ -985,7 +987,7 @@ public:
   using RealType       = Tensor<double, 8>;
   const static bool is_integer=true;
 };
-template <> class NumericTraits<Tensor<float, 8> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<float, 8> > {
 public:
   using ValueType      = float;
   using PrintType      = Tensor<float, 8>;
@@ -995,7 +997,7 @@ public:
   using ScalarRealType = double;
   const static bool is_integer=false;
 };
-template <> class NumericTraits<Tensor<double, 8> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<double, 8> > {
 public:
   using ValueType      = double;
   using PrintType      = Tensor<double, 8>;
@@ -1005,7 +1007,7 @@ public:
   using ScalarRealType = double;
   const static bool is_integer=false;
 };
-template <> class NumericTraits<Tensor<long double, 8> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<long double, 8> > {
 public:
   using ValueType      = long double;
   using PrintType      = Tensor<long double, 8>;
@@ -1016,7 +1018,7 @@ public:
   const static bool is_integer=false;
 };
 
-template <> class NumericTraits<Tensor<unsigned char, 9 > > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<unsigned char, 9 > > {
 public:
   using ValueType      = unsigned char;
   using PrintType      = Tensor<unsigned char, 9>;
@@ -1026,7 +1028,7 @@ public:
   using ScalarRealType = double;
   const static bool is_integer=true;
 };
-template <> class NumericTraits<Tensor<signed char, 9> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<signed char, 9> > {
 public:
   using ValueType      = signed char;
   using PrintType      = Tensor<signed char, 9>;
@@ -1036,7 +1038,7 @@ public:
   using ScalarRealType = double;
   const static bool is_integer=true;
 };
-template <> class NumericTraits<Tensor<char, 9> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<char, 9> > {
 public:
   using ValueType      = char;
   using PrintType      = Tensor<char, 9>;
@@ -1046,7 +1048,7 @@ public:
   using ScalarRealType = double;
   const static bool is_integer=true;
 };
-template <> class NumericTraits<Tensor<short, 9> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<short, 9> > {
 public:
   using ValueType      = short;
   using PrintType      = Tensor<short, 9>;
@@ -1056,7 +1058,7 @@ public:
   using ScalarRealType = double;
   const static bool is_integer=true;
 };
-template <> class NumericTraits<Tensor<unsigned short, 9> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<unsigned short, 9> > {
 public:
   using ValueType      = unsigned short;
   using PrintType      = Tensor<unsigned short, 9>;
@@ -1066,7 +1068,7 @@ public:
   using ScalarRealType = double;
   const static bool is_integer=true;
 };
-template <> class NumericTraits<Tensor<int, 9> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<int, 9> > {
 public:
   using ValueType      = int;
   using PrintType      = Tensor<int, 9>;
@@ -1076,7 +1078,7 @@ public:
   using ScalarRealType = double;
   const static bool is_integer=true;
 };
-template <> class NumericTraits<Tensor<unsigned int, 9> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<unsigned int, 9> > {
 public:
   using ValueType      = unsigned int;
   using PrintType      = Tensor<unsigned int, 9>;
@@ -1086,7 +1088,7 @@ public:
   using ScalarRealType = double;
   const static bool is_integer=true;
 };
-template <> class NumericTraits<Tensor<long, 9> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<long, 9> > {
 public:
   using ValueType      = long;
   using PrintType      = Tensor<long, 9>;
@@ -1096,7 +1098,7 @@ public:
   using ScalarRealType = double;
   const static bool is_integer=true;
 };
-template <> class NumericTraits<Tensor<unsigned long, 9> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<unsigned long, 9> > {
 public:
   using ValueType      = unsigned long;
   using PrlongType			= Tensor<unsigned long, 9>;
@@ -1105,7 +1107,7 @@ public:
   using RealType       = Tensor<double, 9>;
   const static bool is_integer=true;
 };
-template <> class NumericTraits<Tensor<float, 9> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<float, 9> > {
 public:
   using ValueType      = float;
   using PrintType      = Tensor<float, 9>;
@@ -1115,7 +1117,7 @@ public:
   using ScalarRealType = double;
   const static bool is_integer=false;
 };
-template <> class NumericTraits<Tensor<double, 9> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<double, 9> > {
 public:
   using ValueType      = double;
   using PrintType      = Tensor<double, 9>;
@@ -1125,7 +1127,7 @@ public:
   using ScalarRealType = double;
   const static bool is_integer=false;
 };
-template <> class NumericTraits<Tensor<long double, 9> > {
+template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<long double, 9> > {
 public:
   using ValueType      = long double;
   using PrintType      = Tensor<long double, 9>;

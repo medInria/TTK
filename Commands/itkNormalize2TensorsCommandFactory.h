@@ -19,10 +19,12 @@
 
 #include "itkObjectFactoryBase.h"
 
+#include <ttkCommands/ttkCommandsExport.h>
+
 namespace itk
 {
-  
-  class Normalize2TensorsCommandFactory : public ObjectFactoryBase
+
+  class TTKCOMMANDS_EXPORT Normalize2TensorsCommandFactory : public ObjectFactoryBase
   {
     
   public:

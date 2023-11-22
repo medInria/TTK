@@ -19,10 +19,12 @@
 
 #include "itkObjectFactoryBase.h"
 
+#include <ttkConvertCommands/ttkConvertCommandsExport.h>
+
 namespace itk
 {
-  
-  class NDImageToTensorImageCommandFactory : public ObjectFactoryBase
+
+  class TTKCONVERTCOMMANDS_EXPORT NDImageToTensorImageCommandFactory : public ObjectFactoryBase
   {
     
   public:

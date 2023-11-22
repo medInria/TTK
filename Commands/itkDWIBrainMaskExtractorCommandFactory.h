@@ -19,10 +19,12 @@
 
 #include "itkObjectFactoryBase.h"
 
+#include <ttkUtilCommands/ttkUtilCommandsExport.h>
+
 namespace itk
 {
   
-  class DWIBrainMaskExtractorCommandFactory : public ObjectFactoryBase
+  class TTKUTILCOMMANDS_EXPORT DWIBrainMaskExtractorCommandFactory : public ObjectFactoryBase
   {
     
   public:

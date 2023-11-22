@@ -22,6 +22,8 @@
 #include <string>
 #include <vector>
 
+#include <ITKTensorExport.h>
+
 namespace itk
 {
 
@@ -29,7 +31,7 @@ namespace itk
  * 
  * \brief 
  */
-class GradientFileReader : public LightProcessObject
+class ITKTENSOR_EXPORT GradientFileReader : public LightProcessObject
 {
 public:
 

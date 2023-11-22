@@ -19,10 +19,12 @@
 
 #include "itkObjectFactoryBase.h"
 
+#include <ttkCommands/ttkCommandsExport.h>
+
 namespace itk
 {
-  
-  class TensorGradientMagnitudeCalculatorCommandFactory : public ObjectFactoryBase
+
+  class TTKCOMMANDS_EXPORT TensorGradientMagnitudeCalculatorCommandFactory : public ObjectFactoryBase
   {
     
   public:

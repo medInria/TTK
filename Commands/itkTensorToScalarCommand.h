@@ -19,9 +19,12 @@
 
 #include "itkCommandObjectBase.h"
 
-namespace itk {
+#include <ttkCommands/ttkCommandsExport.h>
 
-  class TensorToScalarCommand : public CommandObjectBase
+namespace itk
+{
+
+  class TTKCOMMANDS_EXPORT TensorToScalarCommand : public CommandObjectBase
   {
     
   public:

@@ -19,10 +19,12 @@
 
 #include "itkObjectFactoryBase.h"
 
+#include <ttkCommands/ttkCommandsExport.h>
+
 namespace itk
 {
-  
-  class SparseTensorsExtrapolationCommandFactory : public ObjectFactoryBase
+
+  class TTKCOMMANDS_EXPORT SparseTensorsExtrapolationCommandFactory : public ObjectFactoryBase
   {
     
   public:

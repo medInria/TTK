@@ -19,10 +19,12 @@
 
 #include "itkObjectFactoryBase.h"
 
+#include <ttkUtilCommands/ttkUtilCommandsExport.h>
+
 namespace itk
 {
   
-  class WarpImageCommandFactory : public ObjectFactoryBase
+  class TTKUTILCOMMANDS_EXPORT WarpImageCommandFactory : public ObjectFactoryBase
   {
     
   public:

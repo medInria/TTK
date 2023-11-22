@@ -26,6 +26,8 @@
 #include <sstream>
 #include <fstream>
 
+#include <ITKTensorExport.h>
+
 namespace itk
 {
 
@@ -33,7 +35,7 @@ namespace itk
  * 
  * \brief 
  */
-class GradientFileWriter : public LightProcessObject
+class ITKTENSOR_EXPORT GradientFileWriter : public LightProcessObject
 {
 public:
 

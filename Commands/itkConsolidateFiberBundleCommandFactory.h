@@ -19,10 +19,12 @@
 
 #include "itkObjectFactoryBase.h"
 
+#include <ttkConvertCommands/ttkConvertCommandsExport.h>
+
 namespace itk
 {
-  
-  class ConsolidateFiberBundleCommandFactory : public ObjectFactoryBase
+
+  class TTKCONVERTCOMMANDS_EXPORT ConsolidateFiberBundleCommandFactory : public ObjectFactoryBase
   {
     
   public:

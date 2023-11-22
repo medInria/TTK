@@ -2,10 +2,12 @@
 
 #include "itkObjectFactoryBase.h"
 
+#include <ttkCommands/ttkCommandsExport.h>
+
 namespace itk
 {
-  
-  class SheetTrackingCommandFactory : public ObjectFactoryBase
+
+  class TTKCOMMANDS_EXPORT SheetTrackingCommandFactory : public ObjectFactoryBase
   {
     
   public:

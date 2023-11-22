@@ -19,10 +19,12 @@
 
 #include "itkObjectFactoryBase.h"
 
+#include <ttkCommands/ttkCommandsExport.h>
+
 namespace itk
 {
-  
-  class HessianTensorImageCalculatorCommandFactory : public ObjectFactoryBase
+
+  class TTKCOMMANDS_EXPORT HessianTensorImageCalculatorCommandFactory : public ObjectFactoryBase
   {
     
   public:

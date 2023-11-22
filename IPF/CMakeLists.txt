@@ -1,151 +1,63 @@
-project(IPF)
+set(TARGET_NAME ITKProgramFactory)
 
-cmake_minimum_required(VERSION 2.6)
+###############################################
+## DEFINE SOURCES FILES
+set(${TARGET_NAME}_SRCS
+    ${CMAKE_SOURCE_DIR}/IPF/itkCommandObjectBase.cxx
+    ${CMAKE_SOURCE_DIR}/IPF/itkCommandObjectFactory.cxx
+    )
 
-# On Visual Studio 8 MS deprecated C. This removes all 1.276E1265 security
-# warnings. Copied from ITK CMakeLists.
-IF(WIN32)
-  IF(NOT BORLAND)
-    IF(NOT CYGWIN)
-      IF(NOT MINGW)
-          ADD_DEFINITIONS(
-            -D_CRT_FAR_MAPPINGS_NO_DEPRECATE
-            -D_CRT_IS_WCTYPE_NO_DEPRECATE
-            -D_CRT_MANAGED_FP_NO_DEPRECATE
-            -D_CRT_NONSTDC_NO_DEPRECATE
-            -D_CRT_SECURE_NO_DEPRECATE
-            -D_CRT_SECURE_NO_DEPRECATE_GLOBALS
-            -D_CRT_SETERRORMODE_BEEP_SLEEP_NO_DEPRECATE
-            -D_CRT_TIME_FUNCTIONS_NO_DEPRECATE
-            -D_CRT_VCCLRIT_NO_DEPRECATE
-            -D_SCL_SECURE_NO_DEPRECATE
-            )
-      ENDIF(NOT MINGW)
-    ENDIF(NOT CYGWIN)
-  ENDIF(NOT BORLAND)
-ENDIF(WIN32)
+###############################################
+## DEFINE HEADERS FILES
+set(${TARGET_NAME}_HEADERS
+    ${CMAKE_SOURCE_DIR}/IPF/itkCommandObjectBase.h
+    ${CMAKE_SOURCE_DIR}/IPF/itkCommandObjectFactory.h
+    )
 
-#
-# Define EXECUTABLE_OUTPUT_PATH and LIBRARY_OUTPUT_PATH
-#
-SET(EXECUTABLE_OUTPUT_PATH 
- ${CMAKE_BINARY_DIR}/bin 
- CACHE PATH "Single output directory for building all executables."
-)
-
-SET(LIBRARY_OUTPUT_PATH 
- ${CMAKE_BINARY_DIR}/lib 
- CACHE PATH "Single output directory for building all libraries."
-)
-
-# -------------------------------------------------------------------------------------
-# Setup installation settings
-# -------------------------------------------------------------------------------------
-
-set(${PROJECT_NAME}_INSTALL_NO_DEVELOPMENT 0 CACHE BOOL "Do not install development")
-set(${PROJECT_NAME}_INSTALL_NO_RUNTIME     0 CACHE BOOL "Do not install runtime")
-
-set(${PROJECT_NAME}_INSTALL_NO_LIBRARIES)
-if(${PROJECT_NAME}_BUILD_SHARED_LIBS)
-  if(${PROJECT_NAME}_INSTALL_NO_RUNTIME AND ${PROJECT_NAME}_INSTALL_NO_DEVELOPMENT)
-    set(${PROJECT_NAME}_INSTALL_NO_LIBRARIES 1)
-  endif(${PROJECT_NAME}_INSTALL_NO_RUNTIME AND ${PROJECT_NAME}_INSTALL_NO_DEVELOPMENT)
-else(${PROJECT_NAME}_BUILD_SHARED_LIBS)
-  if(${PROJECT_NAME}_INSTALL_NO_DEVELOPMENT)
-    set(${PROJECT_NAME}_INSTALL_NO_LIBRARIES 1)
-  else(${PROJECT_NAME}_INSTALL_NO_DEVELOPMENT)
-    set(${PROJECT_NAME}_INSTALL_NO_LIBRARIES 0)
-  endif(${PROJECT_NAME}_INSTALL_NO_DEVELOPMENT)
-endif(${PROJECT_NAME}_BUILD_SHARED_LIBS)
-
-
-mark_as_advanced(${PROJECT_NAME}_INSTALL_NO_DEVELOPMENT 
-  ${PROJECT_NAME}_INSTALL_NO_RUNTIME
+###############################################
+## DEFINE DEPENDENCIES
+set(LIBRARIES
+    ITKCommon
+    #${ITK_LIBRARIES}
   )
+    
+# Create ttkCommands library
+ADD_LIBRARY(                ${TARGET_NAME} ${TTK_BUILD_TYPE})
+TARGET_LINK_LIBRARIES(      ${TARGET_NAME} PUBLIC  ${LIBRARIES})
+TARGET_SOURCES(             ${TARGET_NAME} PRIVATE ${${TARGET_NAME}_SRCS})
+TARGET_SOURCES(             ${TARGET_NAME} PUBLIC 
+                              FILE_SET publicHeadersIPF
+                              TYPE HEADERS 
+                              BASE_DIRS ${CMAKE_SOURCE_DIR}/IPF
+                              FILES ${${TARGET_NAME}_HEADERS})
+                             
+TARGET_INCLUDE_DIRECTORIES( ${TARGET_NAME} PUBLIC
+                              "$<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/IPF;${CMAKE_BINARY_DIR}/IPF>"
+                              "$<INSTALL_INTERFACE:$<INSTALL_PREFIX>/include/IPF>")
 
-
-set(IPF_REQUIRED_C_FLAGS)
-set(IPF_REQUIRED_CXX_FLAGS)
-
-include(${IPF_SOURCE_DIR}/ipfIncludeDirectories.cmake)
-include_directories(
-${IPF_INCLUDE_DIRS_SOURCE_TREE}
-)
-
-find_package(ITK REQUIRED)
-include(${ITK_USE_FILE})
-
-# set IPF_DIR so it can be used by subprojects
-SET(IPF_DIR "${PROJECT_BINARY_DIR}" CACHE INTERNAL "IPF_DIR variable to be used by subprojects")
-
-add_library(ITKProgramFactory
-itkCommandObjectBase.cxx
-itkCommandObjectFactory.cxx
-)
-
-target_link_libraries(ITKProgramFactory
-${ITK_LIBRARIES}
-)
-
-include(GenerateExportHeader)
-
-generate_export_header(ITKProgramFactory
+generate_export_header(${TARGET_NAME}
   STATIC_DEFINE ITKProgramFactory_BUILT_AS_STATIC
   EXPORT_FILE_NAME "ITKProgramFactoryExport.h"
   )
+install(FILES ${PROJECT_BINARY_DIR}/IPF/ITKProgramFactoryExport.h DESTINATION include/IPF)
 
-add_executable(programFactoryTest
-itkHelloWorldCommand.cxx
-itkHelloWorldCommandFactory.cxx
-programFactoryTest.cxx
-)
+SET (FILESET_INSTALL_DIR_publicHeadersIPF IPF)
+
+export_and_install_libs(${TARGET_NAME})
+
+
+
+###############################################
+## TEST PROGRAM
+add_executable(programFactoryTest)
+TARGET_SOURCES(programFactoryTest PRIVATE
+    itkHelloWorldCommand.cxx
+    itkHelloWorldCommandFactory.cxx
+    programFactoryTest.cxx
+    )
 
 target_link_libraries(programFactoryTest
-ITKProgramFactory
-)
+    ITKCommon
+    ${TARGET_NAME}
+    )
 
-if (NOT ${PROJECT_NAME}_INSTALL_NO_DEVELOPMENT)
-  file(GLOB __files1 "${CMAKE_CURRENT_SOURCE_DIR}/*.h")
-  file(GLOB __files2 "${CMAKE_CURRENT_SOURCE_DIR}/*.txx")
-  install(FILES ${__files1} ${__files2}
-    DESTINATION include
-    COMPONENT Development
-  )
-endif (NOT ${PROJECT_NAME}_INSTALL_NO_DEVELOPMENT)
-	
-if (NOT ${PROJECT_NAME}_INSTALL_NO_LIBRARIES)
-  install(TARGETS ITKProgramFactory
-  DESTINATION lib
-  COMPONENT RuntimeLibraries
-  )
-endif (NOT ${PROJECT_NAME}_INSTALL_NO_LIBRARIES)
-
-# if (NOT ${PROJECT_NAME}_INSTALL_NO_RUNTIME)
-#  install(TARGETS programFactoryTest
-#  DESTINATION ${CMAKE_INSTALL_PREFIX}/bin
-#  COMPONENT RuntimeLibraries
-#  )
-# endif (NOT ${PROJECT_NAME}_INSTALL_NO_RUNTIME)
-
-#-----------------------------------------------------------------------------
-# Help other projects use IPF.
-
-CONFIGURE_FILE(${IPF_SOURCE_DIR}/UseIPF.cmake.in
-               ${IPF_BINARY_DIR}/UseIPF.cmake COPYONLY IMMEDIATE)
-
-# Save the compiler settings so another project can import them.
-SET(IPF_BUILD_SETTINGS_FILE ${IPF_BINARY_DIR}/IPFBuildSettings.cmake)
-INCLUDE(${CMAKE_ROOT}/Modules/CMakeExportBuildSettings.cmake)
-CMAKE_EXPORT_BUILD_SETTINGS(${IPF_BUILD_SETTINGS_FILE})
-
-# Create the IPFConfig.cmake file containing the IPF configuration.
-INCLUDE (${IPF_SOURCE_DIR}/ipfGenerateIPFConfig.cmake)
-
-if (NOT ${PROJECT_NAME}_INSTALL_NO_DEVELOPMENT)
-  INSTALL(FILES 
-    ${IPF_BINARY_DIR}/IPFBuildSettings.cmake
-   ${IPF_BINARY_DIR}/UseIPF.cmake
-   ${IPF_BINARY_DIR}/Utilities/IPFConfig.cmake
-   DESTINATION lib
-  )
-endif (NOT ${PROJECT_NAME}_INSTALL_NO_DEVELOPMENT)

@@ -2,10 +2,12 @@
 
 #include "itkObjectFactoryBase.h"
 
+#include <ttkCommands/ttkCommandsExport.h>
+
 namespace itk
 {
-  
-  class TensorZScoreCalculatorCommandFactory : public ObjectFactoryBase
+
+  class TTKCOMMANDS_EXPORT TensorZScoreCalculatorCommandFactory : public ObjectFactoryBase
   {
     
   public:

@@ -19,10 +19,12 @@
 
 #include "itkObjectFactoryBase.h"
 
+#include <ttkCommands/ttkCommandsExport.h>
+
 namespace itk
 {
-  
-  class TensorToScalarCommandFactory : public ObjectFactoryBase
+
+  class TTKCOMMANDS_EXPORT TensorToScalarCommandFactory : public ObjectFactoryBase
   {
     
   public:

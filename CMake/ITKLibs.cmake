@@ -1,0 +1,33 @@
+# This defines useful cmake variables for ITK libs
+
+set(ITKIO_LIBRARIES
+  ITKIOImageBase
+  ITKIOBMP
+  ITKIOBruker
+  ITKIOLSM
+  ITKIOJPEG
+  ITKIOJPEG2000
+  ITKIOPNG
+  ITKIOVTK
+  ITKIOGDCM
+  ITKIOGE
+  ITKIOMINC
+  ITKNrrdIO
+  ITKIONRRD
+  ITKIOMeta
+  ITKIONIFTI
+  ITKIOGIPL
+  ITKIOHDF5
+  ITKIOBioRad
+  ITKIOStimulate
+  ITKIOMRC
+  ITKIOTIFF
+  ${ITKIOPhilipsREC_LIBRARIES}
+)
+
+set(ITK_TRANSFORM_LIBRARIES
+  ITKIOTransformBase
+  ITKIOTransformInsightLegacy
+  ITKIOTransformHDF5
+  ITKIOTransformMatlab
+)

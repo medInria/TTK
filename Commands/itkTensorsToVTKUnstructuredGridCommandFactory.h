@@ -19,10 +19,12 @@
 
 #include "itkObjectFactoryBase.h"
 
+#include <ttkConvertCommands/ttkConvertCommandsExport.h>
+
 namespace itk
 {
-  
-  class TensorsToVTKUnstructuredGridCommandFactory : public ObjectFactoryBase
+
+  class TTKCONVERTCOMMANDS_EXPORT TensorsToVTKUnstructuredGridCommandFactory : public ObjectFactoryBase
   {
     
   public:

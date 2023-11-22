@@ -19,10 +19,12 @@
 
 #include "itkObjectFactoryBase.h"
 
+#include <ttkUtilCommands/ttkUtilCommandsExport.h>
+
 namespace itk
 {
   
-  class AverageStdCalculatorCommandFactory : public ObjectFactoryBase
+  class TTKUTILCOMMANDS_EXPORT AverageStdCalculatorCommandFactory : public ObjectFactoryBase
   {
     
   public:

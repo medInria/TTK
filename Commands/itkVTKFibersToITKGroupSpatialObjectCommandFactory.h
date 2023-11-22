@@ -19,10 +19,12 @@
 
 #include "itkObjectFactoryBase.h"
 
+#include <ttkConvertCommands/ttkConvertCommandsExport.h>
+
 namespace itk
 {
   
-  class VTKFibersToITKGroupSpatialObjectCommandFactory : public ObjectFactoryBase
+  class TTKCONVERTCOMMANDS_EXPORT VTKFibersToITKGroupSpatialObjectCommandFactory : public ObjectFactoryBase
   {
     
   public:

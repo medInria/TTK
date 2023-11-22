@@ -2,10 +2,12 @@
 
 #include "itkObjectFactoryBase.h"
 
+#include <ttkCommands/ttkCommandsExport.h>
+
 namespace itk
 {
-  
-  class DTIMultiEstimatorCommandFactory : public ObjectFactoryBase
+
+  class TTKCOMMANDS_EXPORT DTIMultiEstimatorCommandFactory : public ObjectFactoryBase
   {
     
   public:

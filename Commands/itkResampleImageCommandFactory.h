@@ -19,10 +19,12 @@
 
 #include "itkObjectFactoryBase.h"
 
+#include <ttkUtilCommands/ttkUtilCommandsExport.h>
+
 namespace itk
 {
   
-  class ResampleImageCommandFactory : public ObjectFactoryBase
+  class TTKUTILCOMMANDS_EXPORT ResampleImageCommandFactory : public ObjectFactoryBase
   {
     
   public:

@@ -19,10 +19,12 @@
 
 #include "itkObjectFactoryBase.h"
 
+#include <ttkCommands/ttkCommandsExport.h>
+
 namespace itk
 {
-  
-  class TensorGaussianFilteringCommandFactory : public ObjectFactoryBase
+
+  class TTKCOMMANDS_EXPORT TensorGaussianFilteringCommandFactory : public ObjectFactoryBase
   {
     
   public:

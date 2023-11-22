@@ -19,10 +19,12 @@
 
 #include "itkObjectFactoryBase.h"
 
+#include <ttkCommands/ttkCommandsExport.h>
+
 namespace itk
 {
   
-  class NPTRemoverCommandFactory : public ObjectFactoryBase
+  class TTKCOMMANDS_EXPORT NPTRemoverCommandFactory : public ObjectFactoryBase
   {
     
   public:

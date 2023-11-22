@@ -19,10 +19,12 @@
 
 #include "itkObjectFactoryBase.h"
 
+#include <ttkConvertCommands/ttkConvertCommandsExport.h>
+
 namespace itk
 {
-  
-  class ImageConverterCommandFactory : public ObjectFactoryBase
+
+  class TTKCONVERTCOMMANDS_EXPORT ImageConverterCommandFactory : public ObjectFactoryBase
   {
     
   public:

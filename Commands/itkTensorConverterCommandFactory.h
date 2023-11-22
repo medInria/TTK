@@ -19,10 +19,12 @@
 
 #include "itkObjectFactoryBase.h"
 
+#include <ttkConvertCommands/ttkConvertCommandsExport.h>
+
 namespace itk
 {
-  
-  class TensorConverterCommandFactory : public ObjectFactoryBase
+
+  class TTKCONVERTCOMMANDS_EXPORT TensorConverterCommandFactory : public ObjectFactoryBase
   {
     
   public:

@@ -2,10 +2,12 @@
 
 #include "itkObjectFactoryBase.h"
 
+#include <ttkCommands/ttkCommandsExport.h>
+
 namespace itk
 {
-  
-  class AddGaussianNoiseToDWICommandFactory : public ObjectFactoryBase
+
+  class TTKCOMMANDS_EXPORT AddGaussianNoiseToDWICommandFactory : public ObjectFactoryBase
   {
     
   public:

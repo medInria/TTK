@@ -19,10 +19,12 @@
 
 #include "itkObjectFactoryBase.h"
 
+#include <ttkUtilCommands/ttkUtilCommandsExport.h>
+
 namespace itk
 {
   
-  class AddRicianNoiseToImageCommandFactory : public ObjectFactoryBase
+  class TTKUTILCOMMANDS_EXPORT AddRicianNoiseToImageCommandFactory : public ObjectFactoryBase
   {
     
   public:

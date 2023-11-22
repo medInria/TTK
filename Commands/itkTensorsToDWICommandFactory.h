@@ -19,10 +19,12 @@
 
 #include "itkObjectFactoryBase.h"
 
+#include <ttkCommands/ttkCommandsExport.h>
+
 namespace itk
 {
-  
-  class TensorsToDWICommandFactory : public ObjectFactoryBase
+
+  class TTKCOMMANDS_EXPORT TensorsToDWICommandFactory : public ObjectFactoryBase
   {
     
   public:

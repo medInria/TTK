@@ -2,10 +2,12 @@
 
 #include "itkObjectFactoryBase.h"
 
+#include <ttkCommands/ttkCommandsExport.h>
+
 namespace itk
 {
-  
-  class FiberTrackingCommandFactory : public ObjectFactoryBase
+
+  class TTKCOMMANDS_EXPORT FiberTrackingCommandFactory : public ObjectFactoryBase
   {
     
   public:

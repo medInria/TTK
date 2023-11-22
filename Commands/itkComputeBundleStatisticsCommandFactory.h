@@ -19,10 +19,12 @@
 
 #include "itkObjectFactoryBase.h"
 
+#include <ttkCommands/ttkCommandsExport.h>
+
 namespace itk
 {
-  
-  class ComputeBundleStatisticsCommandFactory : public ObjectFactoryBase
+
+  class TTKCOMMANDS_EXPORT ComputeBundleStatisticsCommandFactory : public ObjectFactoryBase
   {
     
   public:
