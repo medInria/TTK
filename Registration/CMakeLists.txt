@@ -10,7 +10,7 @@ SET(${TARGET_NAME}_HEADERS_REGISTRATION
     ${__templateHeaders}
     )
 
-# Create RPI_INTERFACE interface
+# Create Registration interface
 ADD_LIBRARY(                ${TARGET_NAME} INTERFACE)                        
 TARGET_SOURCES(             ${TARGET_NAME} INTERFACE 
                               FILE_SET "publicHeadersRegistration" 
