@@ -16,7 +16,7 @@ TARGET_SOURCES(             ${TARGET_NAME} INTERFACE
                               FILE_SET "publicHeadersRegistration" 
                               TYPE HEADERS 
                               BASE_DIRS ${CMAKE_SOURCE_DIR}/Registration
-                              FILES ${${TARGET_NAME}_HEADERS_COMMON})
+                              FILES ${${TARGET_NAME}_HEADERS_REGISTRATION})
 TARGET_INCLUDE_DIRECTORIES( ${TARGET_NAME} INTERFACE
                               "$<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/Registration;${CMAKE_BINARY_DIR}/Registration>"
                               "$<INSTALL_INTERFACE:$<INSTALL_PREFIX>/include/Registration>")
