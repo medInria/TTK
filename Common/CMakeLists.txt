@@ -21,7 +21,7 @@ TARGET_SOURCES(             ${TARGET_NAME} PUBLIC
                               FILES ${${TARGET_NAME}_HEADERS_ALGORITHMS})
                              
 TARGET_INCLUDE_DIRECTORIES( ${TARGET_NAME} PUBLIC
-                              "$<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/Common;${CMAKE_BINARY_DIR}/Common>"
+                              "$<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/Common;${CMAKE_BINARY_DIR}/Common;${CMAKE_BINARY_DIR}>"
                               "$<INSTALL_INTERFACE:$<INSTALL_PREFIX>include/Common>")
 
 generate_export_header(${TARGET_NAME}
