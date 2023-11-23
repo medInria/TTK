@@ -49,15 +49,16 @@ export_and_install_libs(${TARGET_NAME})
 
 ###############################################
 ## TEST PROGRAM
-add_executable(programFactoryTest)
-TARGET_SOURCES(programFactoryTest PRIVATE
-    itkHelloWorldCommand.cxx
-    itkHelloWorldCommandFactory.cxx
-    programFactoryTest.cxx
-    )
+if(BUILD_EXECUTABLES)
+  add_executable(programFactoryTest)
+  TARGET_SOURCES(programFactoryTest PRIVATE
+      itkHelloWorldCommand.cxx
+      itkHelloWorldCommandFactory.cxx
+      programFactoryTest.cxx
+      )
 
-target_link_libraries(programFactoryTest
-    ITKCommon
-    ${TARGET_NAME}
-    )
-
+  target_link_libraries(programFactoryTest
+      ITKCommon
+      ${TARGET_NAME}
+      )
+endif()

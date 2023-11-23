@@ -113,7 +113,7 @@ EXPORT(EXPORT ${TARGET_NAME}Targets
 )
 
 SET(PACKAGE_INIT "@PACKAGE_INIT@")
-CONFIGURE_FILE(${CMAKE_SOURCE_DIR}/cmake/Config.cmake.in ${CMAKE_CURRENT_SOURCE_DIR}/Config.cmake.in @ONLY)
+CONFIGURE_FILE(${CMAKE_SOURCE_DIR}/CMake/Config.cmake.in ${CMAKE_CURRENT_SOURCE_DIR}/Config.cmake.in @ONLY)
 configure_package_config_file(${CMAKE_CURRENT_SOURCE_DIR}/Config.cmake.in
   "${CMAKE_BINARY_DIR}/lib/cmake/${TARGET_NAME}/${TARGET_NAME}Config.cmake"
   INSTALL_DESTINATION lib/cmake/${TARGET_NAME}

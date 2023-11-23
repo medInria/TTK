@@ -2,17 +2,18 @@ add_subdirectory(ttkCommands)
 add_subdirectory(ttkConvertCommands)
 add_subdirectory(ttkUtilCommands)
 
-add_subdirectory(exe_ttk)
-add_subdirectory(exe_ttk-convert)
-add_subdirectory(exe_ttk-utils)
-add_subdirectory(exe_itkStanleyToITK)
+if(BUILD_EXECUTABLES)
+    add_subdirectory(exe_ttk)
+    add_subdirectory(exe_ttk-convert)
+    add_subdirectory(exe_ttk-utils)
+    add_subdirectory(exe_itkStanleyToITK)
 
-if (TTK_USE_GMM)
-    add_subdirectory(exe_DemonsRegistrationTensor)
-    add_subdirectory(exe_AssessRegistrationTensor)
-    add_subdirectory(exe_LogDomainDemonsRegistrationTensor)
+    if (TTK_USE_GMM)
+        add_subdirectory(exe_DemonsRegistrationTensor)
+        add_subdirectory(exe_AssessRegistrationTensor)
+        add_subdirectory(exe_LogDomainDemonsRegistrationTensor)
+    endif()
 endif()
-
 #  
 #    # registration commands
 #    if (TTK_USE_GMM)

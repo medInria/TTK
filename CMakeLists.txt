@@ -44,6 +44,7 @@ option(BUILD_SHARED_LIBS OFF "Build shared libraries")
 option(TTK_USE_GMM       OFF "Use GMM to build registration (tensor demons, log domain tensor demons) module")
 option(TTK_USE_MKL       OFF "Use MKL to solve eigensystems")
 option(TTK_USE_ACML      OFF "Use ACML to solve eigensystems")
+option(BUILD_EXECUTABLES OFF "Build executables")
 
 if (BUILD_SHARED_LIBS)
     set(TTK_BUILD_TYPE "SHARED")
