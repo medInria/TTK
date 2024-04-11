@@ -27,7 +27,7 @@ namespace itk
     Tensor< float,3 > NumericTraits<Tensor<float, 3> >::ZeroValue() { return Zero; }
     Tensor< double,3 > NumericTraits<Tensor<float, 3> >::min() { return std::numeric_limits<double>::min(); }
     Tensor< double,3 > NumericTraits<Tensor<float, 3> >::max() { return std::numeric_limits<double>::max(); }
-    unsigned int NumericTraits<Tensor<float, 3> >::GetLength(Tensor<float, 3> &t) { return 6; }
+    unsigned int NumericTraits<Tensor<float, 3> >::GetLength(const Tensor<float, 3> &t) { return 6; }
     Tensor< float,3 > NumericTraits<Tensor<float, 3> >::NonpositiveMin() { return Tensor< float,3 >(-NumericTraits<float>::NonpositiveMin()); }
     bool NumericTraits<Tensor<float, 3> >::IsPositive(Tensor< float,3 > val) { return val.IsPositive(); }
     bool NumericTraits<Tensor<float, 3> >::IsNonpositive(Tensor< float,3 > val) { return !val.IsPositive(); }
@@ -37,11 +37,11 @@ namespace itk
     Tensor< long double,3 > NumericTraits<Tensor<long double, 3> >::ZeroValue() { return Zero; }
     Tensor< double,3 > NumericTraits<Tensor<double, 3> >::min() { return std::numeric_limits<double>::min(); }
     Tensor< double,3 > NumericTraits<Tensor<double, 3> >::max() { return std::numeric_limits<double>::max(); }
-    unsigned int NumericTraits<Tensor<double, 3> >::GetLength(Tensor<double, 3> &t) { return 6; }
+    unsigned int NumericTraits<Tensor<double, 3> >::GetLength(const Tensor<double, 3> &t) { return 6; }
     Tensor< double,3 > NumericTraits<Tensor<double, 3> >::NonpositiveMin() { return Tensor< double,3 >(-NumericTraits<double>::NonpositiveMin()); }
     bool NumericTraits<Tensor<double, 3> >::IsPositive(Tensor< double,3 > val) { return val.IsPositive(); }
     bool NumericTraits<Tensor<double, 3> >::IsNonpositive(Tensor< double,3 > val) { return !val.IsPositive(); }
     bool NumericTraits<Tensor<double, 3> >::IsNegative(Tensor< double,3 > val) { return val.IsNegative(); }
     bool NumericTraits<Tensor<double, 3> >::IsNonnegative(Tensor< double,3 > val) {return !val.IsNegative(); }
-    unsigned int NumericTraits<Tensor<double, 6> >::GetLength(Tensor<double, 6> &t) { return 21; }
+    unsigned int NumericTraits<Tensor<double, 6> >::GetLength(const Tensor<double, 6> &t) { return 21; }
 }

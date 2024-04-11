@@ -375,7 +375,7 @@ public:
   static bool IsNonpositive(Tensor< float,3 > val);
   static bool IsNegative(Tensor< float,3 > val);
   static bool IsNonnegative(Tensor< float,3 > val);
-  static unsigned int GetLength(Tensor<float, 3> &t);
+  static unsigned int GetLength(const Tensor<float, 3> &t);
   
   using ScalarRealType = double ;
   const static bool is_integer=false;
@@ -399,7 +399,7 @@ public:
   static bool IsNonpositive(Tensor< double,3 > val);
   static bool IsNegative(Tensor< double,3 > val);
   static bool IsNonnegative(Tensor< double,3 > val);
-  static unsigned int GetLength(Tensor<double, 3> &t);
+  static unsigned int GetLength(const Tensor<double, 3> &t);
   using ScalarRealType = double;
   const static bool is_integer=false;
   const static bool is_signed=true;
@@ -764,7 +764,7 @@ public:
   using AccumulateType = Tensor<long double, 6>;
   using RealType       = Tensor<double, 6>;
   using ScalarRealType = double;
-  static unsigned int GetLength(Tensor<double, 6> &t);
+  static unsigned int GetLength(const Tensor<double, 6> &t);
   const static bool is_integer=false;
 };
 template <> class ITKTENSOR_EXPORT NumericTraits<Tensor<long double, 6> > {
