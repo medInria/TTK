@@ -31,13 +31,18 @@ namespace itk
   {
 
   public:
-    typedef AddGaussianNoiseImageFilter Self;
-    typedef ImageToImageFilter<TInputImage, TOutputImage> Superclass;
-    typedef SmartPointer <Self> Pointer;
-    typedef SmartPointer <const Self> ConstPointer;
 
+    /** Standard class type aliases. */
+    using Self = AddGaussianNoiseImageFilter;
+    using Superclass = ImageToImageFilter<TInputImage, TOutputImage>;
+    using Pointer = SmartPointer<Self>;
+    using ConstPointer = SmartPointer<const Self>;
+
+    /** Method for creation through the object factory. */
     itkNewMacro(Self);
-    itkTypeMacro (AddGaussianNoiseTensorImageFilter, ImageToImageFilter);
+
+    /** Run-time type information (and related methods). */
+    itkTypeMacro (AddGaussianNoiseImageFilter, ImageToImageFilter);
 
     typedef TInputImage                           InputImageType;
     typedef typename InputImageType::PixelType    InputPixelType;
