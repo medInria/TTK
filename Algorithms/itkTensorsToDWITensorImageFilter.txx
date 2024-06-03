@@ -57,9 +57,6 @@ namespace itk
     typedef ImageRegionIterator<OutputImageType>      IteratorOutputType;
     typedef ImageRegionConstIterator<InputImageType>  IteratorInputType;
     
-    unsigned long numPixels = outputRegionForThread.GetNumberOfPixels();
-    unsigned long step = numPixels/100;
-    
     unsigned int NOutput = this->GetNumberOfRequiredOutputs();
         
     std::vector<IteratorOutputType> IteratorOutputList;

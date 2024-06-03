@@ -83,7 +83,6 @@ namespace itk
 
     /** Image point typedef. */
     typedef typename InterpolatorType::PointType    PointType;
-    //typedef typename TOutputImage::PointType    PointType;
     
     /** Image pixel value typedef. */
     typedef typename TOutputImage::PixelType   PixelType;

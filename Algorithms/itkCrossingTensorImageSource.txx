@@ -38,8 +38,10 @@ namespace itk
     typename TensorImageType::SizeType size = {{0}};
 
     typename TensorImageType::SizeType::SizeValueType localSize[NDimensions];
-    for (int i=0; i<NDimensions; ++i)
+    for (int i=0; i<static_cast<int>(NDimensions); ++i)
+    {
         localSize[i]  = m_Size[i];
+    }
 
     size.SetSize( localSize );
     

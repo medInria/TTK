@@ -67,29 +67,19 @@ namespace itk
     const char* fileOut = cl.follow("NoFile",2,"-o","-O");
     const char* fileGrad = cl.follow("NoFile",2,"-g","-G");
     const double bst = cl.follow(0.0,2,"-bst","-BST");
-    //const double lambda = cl.follow(0.0,2,"-l","-L");
-    //const double kappa = cl.follow(1.0,2,"-k","-K");
-    //const double rms = cl.follow(1.0,2,"-rms","-RMS");
     const double dt = cl.follow(1.0,2,"-dt","-DT");
-    //const double dtb0 = cl.follow(1.0,2,"-dtb0","-DTB0");
     const double c = cl.follow (1.345, 2, "-c","-C");  
-    //const int nite = cl.follow(100,2,"-nite","-NITE");
-    //const int init = cl.follow(0,2,"-init","-INIT");
     const int mode = cl.follow(1,2,"-mode","-MODE");
     const int gd = cl.follow (0,2,"-gd","-GD");
     const char* var_file = cl.follow("NoFile",2,"-var","-VAR");  
     const int me = cl.follow(0, 2,"-me","-ME");  
     const double numthreads = cl.follow (1,2,"-t","-T");
     const char* ifile = cl.follow ("NoFile",2,"-init","-INIT");
-        
 
     typedef double                                          ScalarType;  
     typedef itk::Image<ScalarType,3>                        ImageType;
-    typedef ImageType::RegionType                           RegionType;
-    typedef ImageType::SizeType                             SizeType;
     typedef itk::TensorImageIO<ScalarType, 3, 3>            IOType;
     typedef IOType::TensorImageType                         TensorImageType;    
-    typedef TensorImageType::PixelType                      TensorType;
     typedef itk::ImageFileReader<ImageType>                 ReaderType;
     typedef itk::DTIEstimatorWithBFGSTensorImageFilter<ImageType, TensorImageType>
       EstimatorType;
@@ -101,22 +91,7 @@ namespace itk
     
     // Create the filters
     EstimatorType::Pointer myEstimator = EstimatorType::New();
-    
-    /*
-    // wanna test the Bessel values:
-    std::ofstream testBuff ("bessel.log");
-    std::ofstream testBuff2 ("besselratio.log");
-    for( double t=0.0; t<100.0; t+=0.1)
-    {
-    testBuff << t << " " << EstimatorType::Bessel (t) << std::endl;
-    testBuff2 << t << " " << EstimatorType::BesselRatio (t) << std::endl;
-    }
-    testBuff.close();
-    testBuff2.close();
-    */
-    
-    
-    
+ 
     std::cout << "########################################################" << std::endl;
     std::cout << "# Estimating Tensor Field with the following parameters:" << std::endl;
     std::cout << "# Mode   = " << mode << std::endl;

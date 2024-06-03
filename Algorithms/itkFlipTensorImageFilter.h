@@ -68,9 +68,12 @@ namespace itk
     /** Set (to 1) here the axes to be flipped 
         Note that axes array size must be ImageDimension */
     void SetFlipAxes (const bool* axes)
-    { for (unsigned int i=0;i<ImageDimension;i++)
+    { 
+      for (unsigned int i=0;i<ImageDimension;i++)
+      {
         m_FlipAxes[i] = axes[i];
-        this->Modified();
+      }
+      this->Modified();
     }
     /** Set here weither an axis has
         to be flipped or not */
