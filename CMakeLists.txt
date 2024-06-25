@@ -32,7 +32,7 @@ find_package(ITK REQUIRED)
 find_package(VTK REQUIRED)
 
 INCLUDE(${ITK_USE_FILE})
-INCLUDE(${VTK_USE_FILE})
+include_directories(${VTK_INCLUDE_DIRS})
 INCLUDE(ITKLibs)
 INCLUDE(export_and_install_libs)
 INCLUDE(GenerateExportHeader)
