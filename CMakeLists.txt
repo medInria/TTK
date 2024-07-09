@@ -3,10 +3,6 @@ set(CMAKE_MACOSX_RPATH OFF)
 set(TTK_VERSION_NUMBER 1.4.0)
 mark_as_advanced(TTK_VERSION_NUMBER)
 
-
-
-
-
 project(TTK VERSION ${TTK_VERSION_NUMBER})
 
 ## #################################################################
@@ -21,18 +17,14 @@ mark_as_advanced(${PROJECT_NAME}_VERSION_MAJOR)
 mark_as_advanced(${PROJECT_NAME}_VERSION_MINOR)
 mark_as_advanced(${PROJECT_NAME}_VERSION_BUILD)
 
-
-
-
 ## #################################################################
 ## Required dependencies and CMAKE MODULES
 ## #################################################################
 SET(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/CMake)
+
 find_package(ITK REQUIRED)
-find_package(VTK REQUIRED)
 
 INCLUDE(${ITK_USE_FILE})
-include_directories(${VTK_INCLUDE_DIRS})
 INCLUDE(ITKLibs)
 INCLUDE(export_and_install_libs)
 INCLUDE(GenerateExportHeader)
@@ -59,7 +51,6 @@ endif(TTK_USE_GMM)
 if  (TTK_USE_MKL AND TTK_USE_ACML)
   message(FATAL_ERROR "Both TTK_USE_MKL and TTK_USE_ACML are set to ON, only one can be used at the same time")
 endif ()
-
 
 set(TTK_LAPACK_LIBRARIES)
 if (TTK_USE_MKL)
